@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="el" data-lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chios Marine Club — Scope Document</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#16256E;
+  --navy-deep:#0D1740;
+  --navy-soft:#3B4C96;
+  --gold:#D99A2B;
+  --gold-light:#F0BE5E;
+  --sea:#D9EBF0;
+  --sea-deep:#B9D9E4;
+  --paper:#FFFFFF;
+  --ink:#22293D;
+  --ink-soft:#5A6478;
+  --rule:#D6DCE8;
+  --flag-red:#B3261E;
+  --flag-amber:#B87A0B;
+  --flag-green:#1F6B4A;
+  --bar:56px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Source Sans 3",system-ui,sans-serif;
+  font-size:clamp(16.5px,0.42vw + 13.2px,20px);line-height:1.66;-webkit-font-smoothing:antialiased;
+}
+
+/* ═══════ TOP BAR ═══════ */
+.topbar{
+  position:sticky;top:0;z-index:100;height:var(--bar);
+  background:rgba(255,255,255,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.topbar-inner{
+  max-width:1800px;margin:0 auto;height:100%;padding:0 2.5rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.brandmark{display:flex;align-items:center;gap:.65rem;min-width:0}
+.brandmark svg{flex:0 0 auto}
+.bm-text{font-family:"Source Serif 4",Georgia,serif;line-height:1.15;min-width:0;overflow:hidden}
+.bm-name{display:block;color:var(--navy);font-size:.9rem;font-weight:700;white-space:nowrap}
+.bm-kind{display:block;color:var(--ink-soft);font-size:.66rem;letter-spacing:.14em;
+  text-transform:uppercase;font-family:"Source Sans 3",sans-serif;white-space:nowrap}
+.controls{display:flex;align-items:center;gap:.5rem;flex:0 0 auto}
+.langtoggle{display:flex;border:1px solid var(--navy);border-radius:2px;overflow:hidden}
+.langtoggle button{
+  appearance:none;border:0;background:var(--paper);color:var(--navy);
+  font-family:"Source Sans 3",sans-serif;font-size:.72rem;font-weight:700;
+  letter-spacing:.1em;padding:.4rem .72rem;cursor:pointer;transition:background .15s,color .15s;
+}
+.langtoggle button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.langtoggle button:focus-visible,.printbtn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.printbtn{
+  appearance:none;border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft);
+  font-family:"Source Sans 3",sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.07em;
+  padding:.4rem .72rem;border-radius:2px;cursor:pointer;white-space:nowrap;
+}
+.printbtn:hover{border-color:var(--navy);color:var(--navy)}
+
+/* ═══════ COVER — full viewport ═══════ */
+.cover{
+  min-height:calc(100vh - var(--bar));
+  background:
+    radial-gradient(1100px 620px at 88% 12%, #1B2C7A 0%, rgba(27,44,122,0) 62%),
+    linear-gradient(168deg,#0D1740 0%,#101C52 52%,#0B142F 100%);
+  color:#fff;display:flex;align-items:center;position:relative;overflow:hidden;
+}
+.cover-inner{max-width:1800px;margin:0 auto;padding:4rem 2.5rem 5rem;width:100%;position:relative;z-index:2}
+.cover-seal{
+  position:absolute;right:-90px;top:50%;transform:translateY(-50%);
+  width:min(620px,52vw);opacity:.10;z-index:1;pointer-events:none;
+}
+.cover::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:6px;z-index:3;
+  background:linear-gradient(90deg,var(--gold) 0 34%,var(--navy-soft) 34% 100%);
+}
+.eyebrow{
+  font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--gold-light);font-weight:700;margin:0 0 1.5rem;
+}
+.cover h1{
+  font-family:"Source Serif 4",Georgia,serif;
+  font-size:clamp(2.3rem,5.1vw,4rem);line-height:1.08;margin:0 0 1.1rem;
+  font-weight:700;letter-spacing:-.022em;max-width:19ch;
+}
+.cover .sub{
+  font-size:clamp(1rem,1.35vw,1.2rem);color:#BFCDF0;margin:0 0 3.2rem;
+  max-width:52ch;line-height:1.58;font-weight:300;
+}
+.meta{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1.5rem 3rem;border-top:1px solid rgba(255,255,255,.2);padding-top:1.8rem;max-width:1000px;
+}
+.meta dt{font-size:.64rem;letter-spacing:.17em;text-transform:uppercase;color:#8FA3D8;margin:0 0 .3rem}
+.meta dd{margin:0;font-size:.96rem;color:#fff;font-weight:600;line-height:1.4}
+.scrollhint{
+  position:absolute;left:50%;bottom:2.1rem;transform:translateX(-50%);z-index:3;
+  font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:#7D91CC;
+}
+
+/* ═══════ DOCUMENT GRID ═══════ */
+.doc{
+  max-width:1800px;margin:0 auto;padding:0 clamp(2.5rem,3.2vw,4.5rem) 5rem;
+  display:grid;grid-template-columns:clamp(238px,15vw,300px) minmax(0,1fr);gap:clamp(4rem,5vw,7rem);align-items:start;
+}
+.toc{
+  position:sticky;top:calc(var(--bar) + 2.2rem);
+  padding-top:3.6rem;font-size:.88rem;line-height:1.4;
+  max-height:calc(100vh - var(--bar) - 4rem);overflow-y:auto;
+}
+.toc h4{
+  font-size:.63rem;letter-spacing:.19em;text-transform:uppercase;color:var(--ink-soft);
+  margin:0 0 .9rem;font-weight:700;
+}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+.toc li{counter-increment:toc;margin:0}
+.toc a{
+  display:grid;grid-template-columns:1.7rem 1fr;gap:.2rem;
+  padding:.36rem 0;color:var(--ink-soft);text-decoration:none;
+  border-left:2px solid transparent;padding-left:.7rem;transition:color .15s,border-color .15s;
+}
+.toc a::before{content:counter(toc);font-variant-numeric:tabular-nums;color:var(--sea-deep);font-weight:700}
+.toc a:hover{color:var(--navy)}
+.toc a.active{color:var(--navy);border-left-color:var(--gold);font-weight:600}
+.toc a.active::before{color:var(--gold)}
+.content{max-width:none;padding-top:3.6rem}
+
+/* ═══════ TYPOGRAPHY ═══════ */
+h2{
+  font-family:"Source Serif 4",Georgia,serif;
+  font-size:clamp(1.72rem,1.55vw,2.35rem);line-height:1.18;color:var(--navy);
+  margin:3.6rem 0 .3rem;font-weight:700;letter-spacing:-.012em;scroll-margin-top:calc(var(--bar) + 1.5rem);
+}
+h2:first-of-type{margin-top:0}
+h2 .num{
+  display:block;font-family:"Source Sans 3",sans-serif;font-size:.66rem;
+  letter-spacing:.21em;color:var(--gold);font-weight:700;margin-bottom:.55rem;text-transform:uppercase;
+}
+.waterline{height:2px;background:var(--gold);width:56px;margin:0 0 1.6rem}
+h3{font-family:"Source Sans 3",sans-serif;font-size:1.08rem;color:var(--navy);margin:2rem 0 .55rem;font-weight:700}
+h4{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin:1.6rem 0 .5rem;font-weight:700}
+p{margin:0 0 1.05rem;max-width:82ch}
+ul,ol{margin:0 0 1.15rem;padding-left:1.25rem;max-width:82ch}
+li{margin-bottom:.42rem}
+strong{font-weight:700;color:var(--navy-deep)}
+a{color:var(--navy);text-underline-offset:2px}
+.lead{font-size:1.17rem;line-height:1.58;max-width:76ch}
+.muted{color:var(--ink-soft)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;background:var(--sea);padding:.08em .34em;border-radius:2px;color:var(--navy-deep)}
+
+/* ═══════ COMPONENTS ═══════ */
+.callout{border-left:4px solid var(--navy);background:var(--sea);padding:1.3rem 1.6rem;margin:1.7rem 0;font-size:.98rem;max-width:92ch}
+.callout.urgent{border-left-color:var(--flag-red);background:#FBEEED}
+.callout.note{border-left-color:var(--gold);background:#FDF6E9}
+.callout p:last-child{margin-bottom:0}
+.callout p{max-width:none}
+.callout h4{margin-top:0}
+
+.finding{border:1px solid var(--rule);border-left:5px solid var(--rule);padding:1.2rem 1.5rem;margin:0 0 .95rem;background:#fff}
+.finding.f1{border-left-color:var(--flag-red)}
+.finding.f2{border-left-color:var(--flag-amber)}
+.finding.f3{border-left-color:var(--flag-green)}
+.fhead{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;margin-bottom:.4rem}
+.fid{font-size:.7rem;letter-spacing:.13em;font-weight:700;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.ftitle{font-weight:700;color:var(--navy-deep);font-size:1rem}
+.flag{font-size:.61rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;padding:.16rem .5rem;border-radius:2px;white-space:nowrap}
+.f1 .flag{background:#FBEEED;color:var(--flag-red)}
+.f2 .flag{background:#FDF3E2;color:var(--flag-amber)}
+.f3 .flag{background:#E8F3ED;color:var(--flag-green)}
+.finding p{margin:0;font-size:.96rem;max-width:88ch}
+.finding p+p{margin-top:.5rem}
+
+table{width:100%;border-collapse:collapse;margin:1.15rem 0 1.9rem;font-size:.93rem}
+caption{caption-side:top;text-align:left;font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;padding-bottom:.55rem}
+th{text-align:left;background:var(--navy);color:#fff;font-weight:600;padding:.7rem .95rem;font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;vertical-align:bottom}
+td{padding:.72rem .95rem;border-bottom:1px solid var(--rule);vertical-align:top}
+tbody tr:nth-child(even) td{background:#FAFCFD}
+td.tech{font-weight:700;color:var(--navy-deep)}
+.tbl-scroll{overflow-x:auto}
+.yes{color:var(--flag-green);font-weight:700}
+.no{color:var(--ink-soft)}
+
+.scopegrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,3vw,3.4rem);margin:1.4rem 0 1.9rem;max-width:92ch}
+.scopecol{border-top:3px solid var(--navy);padding-top:.9rem}
+.scopecol.out{border-top-color:var(--ink-soft)}
+.scopecol h4{margin-top:0}
+.scopecol ul{padding-left:1.1rem;margin-bottom:0;font-size:.93rem}
+
+.decision{display:grid;grid-template-columns:auto 1fr;gap:1.15rem;border-bottom:1px solid var(--rule);padding:1.2rem 0}
+.decision:last-of-type{border-bottom:0}
+.dnum{font-family:"Source Serif 4",Georgia,serif;font-size:2rem;font-weight:700;color:var(--gold);line-height:1;font-variant-numeric:tabular-nums}
+.decision h3{margin:0 0 .35rem;font-size:1rem}
+.decision p{margin:0 0 .4rem;font-size:.96rem;max-width:88ch}
+.rec{font-size:.85rem;color:var(--navy);font-weight:600}
+
+figure{margin:1.5rem 0 1.9rem}
+figcaption{font-size:.8rem;color:var(--ink-soft);margin-top:.6rem}
+svg.arch{width:100%;max-width:1100px;height:auto;display:block;border:1px solid var(--rule)}
+
+.docfoot{margin-top:3.6rem;border-top:1px solid var(--rule);padding-top:1.3rem;font-size:.8rem;color:var(--ink-soft);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+/* ═══════ RESPONSIVE ═══════ */
+@media (max-width:1080px){
+  .doc{grid-template-columns:1fr;gap:0;padding:0 2rem 4rem}
+  .toc{display:none}
+  .content{max-width:78ch;margin:0 auto}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .topbar-inner{padding:0 1.1rem}
+  .bm-kind{display:none}
+  .cover{min-height:auto}
+  .cover-inner{padding:3rem 1.4rem 3.4rem}
+  .cover-seal{display:none}
+  .scrollhint{display:none}
+  .doc{padding:0 1.4rem 3rem}
+  .content{padding-top:2.4rem}
+  h2{font-size:1.4rem;margin-top:2.7rem}
+  .scopegrid{grid-template-columns:1fr;gap:1.1rem}
+}
+
+/* ═══════ PRINT ═══════ */
+@page{size:A4;margin:17mm 15mm}
+@media print{
+  body{font-size:10.4pt;line-height:1.5}
+  .topbar,.toc,.scrollhint,.printbtn,.langtoggle{display:none!important}
+  .cover{min-height:auto;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .cover-inner{padding:2rem 1.6rem 2.2rem;max-width:none}
+  .cover-seal{opacity:.07;right:-40px;width:300px}
+  .cover h1{font-size:24pt}
+  .cover .sub{font-size:11pt;margin-bottom:1.6rem}
+  .doc{display:block;max-width:none;padding:0}
+  .content{max-width:none;padding-top:0}
+  p,ul,ol,.lead,.callout,.scopegrid,.finding p,.decision p{max-width:none}
+  body{font-size:10.4pt}
+  h2{page-break-after:avoid;break-after:avoid;margin-top:1.7rem;font-size:14pt}
+  h3,h4{page-break-after:avoid;break-after:avoid}
+  .finding,.callout,.decision,figure,table,.scopecol{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid}
+  th,.flag,.callout,.finding{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  a{text-decoration:none;color:var(--navy)}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* ═══════ LANGUAGE SWITCH — must stay last ═══════ */
+html[data-lang="el"] .en,
+html[data-lang="el"] span.en,
+html[data-lang="el"] div.en{display:none!important}
+html[data-lang="en"] .el,
+html[data-lang="en"] span.el,
+html[data-lang="en"] div.el{display:none!important}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brandmark">
+      <svg width="30" height="30" viewBox="0 0 34 34" aria-hidden="true">
+        <circle cx="17" cy="17" r="16" fill="none" stroke="#D99A2B" stroke-width="2"/>
+        <circle cx="17" cy="17" r="12" fill="#16256E"/>
+        <path d="M14 10c2.6.6 4.2 2.4 4.8 4.6.5 1.9-.2 3.6-1.1 5.2-.8 1.4-1.7 2.6-3.2 3.3-1-1.6-1.4-3.3-1.2-5.1.2-1.6.7-3.1.6-4.7 0-1.1-.3-2.2.1-3.3z" fill="#E8A33D"/>
+      </svg>
+      <span class="bm-text">
+        <span class="bm-name"><span class="el">Ναυτιλιακή Λέσχη Χίων</span><span class="en">Chios Marine Club</span></span>
+        <span class="bm-kind"><span class="el">Πρόταση Έργου · Έκδοση 1.3</span><span class="en">Project Proposal · Version 1.3</span></span>
+      </span>
+    </div>
+    <div class="controls">
+      <button class="printbtn" onclick="window.print()"><span class="el">Εκτύπωση / PDF</span><span class="en">Print / PDF</span></button>
+      <div class="langtoggle" role="group" aria-label="Language">
+        <button id="btn-el" aria-pressed="true" onclick="setLang('el')">ΕΛ</button>
+        <button id="btn-en" aria-pressed="false" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ COVER ══════════════ -->
+<header class="cover">
+  <svg class="cover-seal" viewBox="0 0 34 34" aria-hidden="true">
+    <circle cx="17" cy="17" r="16" fill="none" stroke="#F0BE5E" stroke-width=".8"/>
+    <circle cx="17" cy="17" r="12.4" fill="none" stroke="#F0BE5E" stroke-width=".4"/>
+    <path d="M14 10c2.6.6 4.2 2.4 4.8 4.6.5 1.9-.2 3.6-1.1 5.2-.8 1.4-1.7 2.6-3.2 3.3-1-1.6-1.4-3.3-1.2-5.1.2-1.6.7-3.1.6-4.7 0-1.1-.3-2.2.1-3.3z" fill="#F0BE5E"/>
+  </svg>
+  <div class="cover-inner">
+    <p class="eyebrow"><span class="el">Πρόταση Έργου · Έκδοση 1.3</span><span class="en">Project Proposal · Version 1.3</span></p>
+    <h1><span class="el">Αναβάθμιση Ψηφιακής Παρουσίας &amp; Πλατφόρμα Μελών</span><span class="en">Digital Presence Upgrade &amp; Members Platform</span></h1>
+    <p class="sub"><span class="el">Πρόταση εύρους, αρχιτεκτονικής και τεκμηρίωσης τεχνολογικών επιλογών για το νέο ψηφιακό περιβάλλον της Ναυτιλιακής Λέσχης Χίων.</span><span class="en">Scope, architecture and technology rationale for the new digital environment of the Chios Marine Club.</span></p>
+    <dl class="meta">
+      <div>
+        <dt><span class="el">Προς</span><span class="en">To</span></dt>
+        <dd><span class="el">Διοικητικό Συμβούλιο,<br>Ναυτιλιακή Λέσχη Χίων</span><span class="en">Board of Directors,<br>Chios Marine Club</span></dd>
+      </div>
+      <div>
+        <dt><span class="el">Σε απάντηση</span><span class="en">In response to</span></dt>
+        <dd><span class="el">Επιστολή Γεν. Γραμματέως,<br>27 Ιουλίου 2026</span><span class="en">Letter from the Secretary General,<br>27 July 2026</span></dd>
+      </div>
+      <div>
+        <dt><span class="el">Χορηγία υλοποίησης</span><span class="en">Implementation sponsored by</span></dt>
+        <dd>[<span class="el">προς συμπλήρωση</span><span class="en">to be completed</span>]</dd>
+      </div>
+      <div>
+        <dt><span class="el">Ημερομηνία</span><span class="en">Date</span></dt>
+        <dd>[<span class="el">προς συμπλήρωση</span><span class="en">to be completed</span>]</dd>
+      </div>
+    </dl>
+  </div>
+  <div class="scrollhint"><span class="el">18 ενότητες ↓</span><span class="en">18 sections ↓</span></div>
+</header>
+
+<div class="doc">
+
+<!-- ══════════════ TOC ══════════════ -->
+<nav class="toc" aria-label="Contents">
+  <h4><span class="el">Περιεχόμενα</span><span class="en">Contents</span></h4>
+  <ol>
+    <li><a href="#s1"><span><span class="el">Σύνοψη</span><span class="en">Executive summary</span></span></a></li>
+    <li><a href="#s2"><span><span class="el">Το αίτημά σας</span><span class="en">Your request</span></span></a></li>
+    <li><a href="#s3"><span><span class="el">Υφιστάμενη κατάσταση</span><span class="en">Existing site</span></span></a></li>
+    <li><a href="#s4"><span><span class="el">Δύο επείγοντα</span><span class="en">Two urgent items</span></span></a></li>
+    <li><a href="#s5"><span><span class="el">Στόχοι &amp; κριτήρια</span><span class="en">Objectives</span></span></a></li>
+    <li><a href="#s6"><span><span class="el">Εύρος v1</span><span class="en">Scope of v1</span></span></a></li>
+    <li><a href="#s7"><span><span class="el">Τι δεν αναλαμβάνουμε</span><span class="en">Not undertaken</span></span></a></li>
+    <li><a href="#s8"><span><span class="el">Αρχιτεκτονική</span><span class="en">Architecture</span></span></a></li>
+    <li><a href="#s9"><span><span class="el">Μετάπτωση &amp; αρχείο</span><span class="en">Migration &amp; archive</span></span></a></li>
+    <li><a href="#s10"><span><span class="el">Επιλογές τεχνολογίας</span><span class="en">Technology rationale</span></span></a></li>
+    <li><a href="#s11"><span><span class="el">Ασφάλεια &amp; δεδομένα</span><span class="en">Security &amp; data</span></span></a></li>
+    <li><a href="#s12"><span><span class="el">Η εναλλακτική</span><span class="en">The alternative</span></span></a></li>
+    <li><a href="#s13"><span><span class="el">Φάσεις</span><span class="en">Phases</span></span></a></li>
+    <li><a href="#s14"><span><span class="el">Οικονομικά</span><span class="en">Financials</span></span></a></li>
+    <li><a href="#s15"><span><span class="el">Κυριότητα &amp; συνέχεια</span><span class="en">Ownership</span></span></a></li>
+    <li><a href="#s16"><span><span class="el">Συμβατικό πλαίσιο</span><span class="en">Contract &amp; IP</span></span></a></li>
+    <li><a href="#s17"><span><span class="el">Ρίσκα &amp; παραδοχές</span><span class="en">Risks</span></span></a></li>
+    <li><a href="#s18"><span><span class="el">Αιτήματα απόφασης</span><span class="en">Decisions</span></span></a></li>
+  </ol>
+</nav>
+
+<div class="content">
+
+<!-- ── 1 ── -->
+<h2 id="s1"><span class="num"><span class="el">Ενότητα 1</span><span class="en">Section 1</span></span><span class="el">Σύνοψη</span><span class="en">Executive Summary</span></h2>
+<div class="waterline"></div>
+
+<p class="lead"><span class="el">Η επιστολή της 27ης Ιουλίου περιγράφει ένα έργο που, εξεταζόμενο τεχνικά, δεν είναι ανασχεδιασμός ιστοσελίδας. Είναι η δημιουργία μιας πλατφόρμας μελών με ελεγχόμενη πρόσβαση, προσωπικούς λογαριασμούς και δεδομένα 337 φυσικών μελών και 125 εταιρειών-μελών. Η διαφορά αυτή καθορίζει κάθε επόμενη απόφαση: αρχιτεκτονική, ασφάλεια, κόστος και υποχρεώσεις.</span><span class="en">The letter of 27 July describes a project which, examined technically, is not a website redesign. It is the creation of a members platform with controlled access, personal accounts, and the data of 337 individual members and 125 corporate members. That distinction governs every subsequent decision: architecture, security, cost and obligations.</span></p>
+
+<p><span class="el">Κατά την τεχνική εξέταση της υφιστάμενης παρουσίας εντοπίστηκαν <strong>δύο ζητήματα που απαιτούν ενέργεια ανεξάρτητα από το έργο</strong> και δεν πρέπει να αναμείνουν σχεδιασμό ή έγκριση προϋπολογισμού. Περιγράφονται στην Ενότητα 4. Συνοπτικά: το ένα αφορά απώλεια ελέγχου διαδικτυακού ονόματος που εμφανίζεται σε επίσημα έντυπα της Λέσχης, το άλλο αφορά ελεύθερα προσβάσιμα προσωπικά δεδομένα τρίτων.</span><span class="en">During the technical review of the existing presence, <strong>two issues were identified that require action independently of this project</strong> and should not wait for design work or budget approval. They are set out in Section 4. In brief: one concerns loss of control of a domain name that appears on the Club's official material; the other concerns freely accessible personal data of third parties.</span></p>
+
+<p><span class="el">Η πρόταση προβλέπει ότι <strong>η ανάπτυξη καλύπτεται από χορηγία</strong>, ενώ <strong>τα τρέχοντα λειτουργικά έξοδα βαρύνουν τη Λέσχη</strong>. Η δομή αυτή δεν είναι λογιστική λεπτομέρεια: εξασφαλίζει ότι το σύστημα αποκτά δική του γραμμή στον προϋπολογισμό και επιβιώνει πέραν του πρώτου έτους και πέραν της παρούσας σύνθεσης του Διοικητικού Συμβουλίου.</span><span class="en">The proposal provides that <strong>development is covered by sponsorship</strong>, while <strong>recurring operating costs are borne by the Club</strong>. This is not an accounting detail: it ensures the system has its own budget line and survives beyond the first year and beyond the current composition of the Board.</span></p>
+
+<div class="callout note">
+  <h4><span class="el">Τι ζητείται από το Διοικητικό Συμβούλιο</span><span class="en">What is asked of the Board</span></h4>
+  <p><span class="el">Το παρόν κείμενο καταλήγει σε <strong>έξι αριθμημένα αιτήματα απόφασης</strong> (Ενότητα 18). Κάθε ένα συνοδεύεται από προτεινόμενη επιλογή και αιτιολόγηση. Δεν απαιτείται συνάντηση· η διαδικασία μπορεί να ολοκληρωθεί εξ ολοκλήρου γραπτώς.</span><span class="en">This document concludes with <strong>six numbered decision requests</strong> (Section 18). Each carries a recommended option and its rationale. No meeting is required; the process can be completed entirely in writing.</span></p>
+</div>
+
+<!-- ── 2 ── -->
+<h2 id="s2"><span class="num"><span class="el">Ενότητα 2</span><span class="en">Section 2</span></span><span class="el">Το αίτημά σας, αποτυπωμένο ως προδιαγραφή</span><span class="en">Your request, restated as specification</span></h2>
+<div class="waterline"></div>
+
+<p><span class="el">Η επιστολή θέτει τρεις διακριτές ενότητες απαιτήσεων. Παρατίθενται εδώ ώστε να υπάρχει κοινή αφετηρία και να είναι σαφές τι θεωρούμε δεσμευτικό.</span><span class="en">The letter sets out three distinct requirement areas. They are restated here so that we share a common baseline and it is clear what we treat as binding.</span></p>
+
+<h3><span class="el">Α. Δημόσια ιστοσελίδα</span><span class="en">A. Public website</span></h3>
+<ul>
+  <li><span class="el">Σύγχρονος, καθαρός και επαγγελματικός σχεδιασμός</span><span class="en">Modern, clean, professional design</span></li>
+  <li><span class="el">Πλήρης λειτουργία σε κινητά και tablet</span><span class="en">Full functionality on mobile and tablet</span></li>
+  <li><span class="el">Αναδιοργάνωση περιεχομένου, με αφαίρεση όσων δεν προσθέτουν ουσιαστική αξία</span><span class="en">Content reorganisation, removing what does not add substantive value</span></li>
+  <li><span class="el">Δυναμική ενημέρωση χωρίς τεχνικές γνώσεις</span><span class="en">Dynamic updating without technical knowledge</span></li>
+</ul>
+
+<h3><span class="el">Β. Πύλη Φυσικών Μελών</span><span class="en">B. Members Portal</span></h3>
+<ul>
+  <li><span class="el">Πρόσβαση με προσωπικούς κωδικούς· προσωπικό προφίλ</span><span class="en">Access with personal credentials; personal profile</span></li>
+  <li><span class="el">Ανακοινώσεις και υλικό αποκλειστικά για μέλη</span><span class="en">Announcements and material exclusively for members</span></li>
+  <li><span class="el">Δήλωση συμμετοχής σε εκδηλώσεις</span><span class="en">Event registration</span></li>
+  <li><span class="el">Κατάλογος μελών για δικτύωση</span><span class="en">Member directory for networking</span></li>
+</ul>
+
+<h3><span class="el">Γ. Πύλη Εταιρειών-Μελών</span><span class="en">C. Corporate Members Portal</span></h3>
+<ul>
+  <li><span class="el">Εταιρικό προφίλ με λογότυπο, περιγραφή και στοιχεία επικοινωνίας</span><span class="en">Corporate profile with logo, description and contact details</span></li>
+  <li><span class="el">Διαχείριση των εκπροσώπων που είναι μέλη της Λέσχης</span><span class="en">Management of company representatives who are Club members</span></li>
+  <li><span class="el">Δημοσίευση εταιρικών νέων· ανάρτηση αγγελιών εργασίας και πρακτικής άσκησης</span><span class="en">Publication of corporate news; posting of job and internship listings</span></li>
+  <li><span class="el">Δράσεις δικτύωσης μεταξύ εταιρειών-μελών</span><span class="en">Networking between corporate members</span></li>
+</ul>
+
+<div class="callout">
+  <p><span class="el"><strong>Τεχνική ανάγνωση.</strong> Οι ενότητες Β και Γ απαιτούν σύστημα ταυτοποίησης χρηστών, διακριτούς ρόλους, σχεσιακή βάση δεδομένων και διαχείριση περιόδων σύνδεσης. Αντιπροσωπεύουν το μεγαλύτερο μέρος της τεχνικής προσπάθειας. Η ενότητα Α, που συνήθως θεωρείται «το έργο», αποτελεί το μικρότερο.</span><span class="en"><strong>Technical reading.</strong> Areas B and C require user authentication, distinct roles, a relational database and session management. They represent the larger part of the technical effort. Area A, usually assumed to be "the project", is the smaller part.</span></p>
+</div>
+
+<!-- ── 3 ── -->
+<h2 id="s3"><span class="num"><span class="el">Ενότητα 3</span><span class="en">Section 3</span></span><span class="el">Αποτύπωση υφιστάμενης κατάστασης</span><span class="en">Assessment of the existing site</span></h2>
+<div class="waterline"></div>
+
+<p><span class="el">Η αποτύπωση προέκυψε από πλήρη τεχνική εξέταση των έξι σελίδων της υφιστάμενης ιστοσελίδας. Κάθε εύρημα είναι επαληθεύσιμο από οποιονδήποτε επισκεφθεί τη διεύθυνση. Δεν έγινε καμία πρόσβαση σε συστήματα διαχείρισης ή σε δεδομένα που δεν είναι ήδη δημόσια.</span><span class="en">This assessment is based on a full technical review of the six pages of the existing website. Every finding is verifiable by anyone visiting the address. No access was made to administrative systems or to any data that is not already public.</span></p>
+
+<h3><span class="el">Κλίμακα περιεχομένου</span><span class="en">Content scale</span></h3>
+<div class="tbl-scroll">
+<table>
+  <caption><span class="el">Μετρήσεις από την υφιστάμενη ιστοσελίδα</span><span class="en">Measurements from the existing website</span></caption>
+  <thead><tr><th><span class="el">Στοιχείο</span><span class="en">Item</span></th><th><span class="el">Ποσότητα</span><span class="en">Quantity</span></th><th><span class="el">Τρέχουσα μορφή</span><span class="en">Current format</span></th></tr></thead>
+  <tbody>
+    <tr><td><span class="el">Φυσικά μέλη</span><span class="en">Individual members</span></td><td>337</td><td><span class="el">Χειροκίνητος πίνακας σε σελίδα</span><span class="en">Manual table in a page</span></td></tr>
+    <tr><td><span class="el">Εταιρείες-μέλη</span><span class="en">Corporate members</span></td><td>125</td><td><span class="el">Χειροκίνητος πίνακας με λογότυπα</span><span class="en">Manual table with logos</span></td></tr>
+    <tr><td><span class="el">Μέλη Διοικητικού Συμβουλίου</span><span class="en">Board members</span></td><td>11</td><td><span class="el">Πίνακας με στοιχεία επικοινωνίας</span><span class="en">Table with contact details</span></td></tr>
+    <tr><td><span class="el">Καταχωρήσεις δραστηριοτήτων</span><span class="en">Activity entries</span></td><td><span class="el">≈100 (από 2018)</span><span class="en">≈100 (since 2018)</span></td><td><span class="el">Λίστα συνδέσμων</span><span class="en">List of links</span></td></tr>
+    <tr><td><span class="el">Αρχείο 2006–2017</span><span class="en">Archive 2006–2017</span></td><td>—</td><td><span class="el">Εξωτερικός φάκελος cloud</span><span class="en">External cloud folder</span></td></tr>
+    <tr><td><span class="el">Καταχωρήσεις βιογραφικών</span><span class="en">CV entries</span></td><td>21</td><td><span class="el">Δημόσια αρχεία PDF / DOCX</span><span class="en">Public PDF / DOCX files</span></td></tr>
+    <tr><td><span class="el">Καταγραφές δωρεών</span><span class="en">Donation records</span></td><td><span class="el">Από το 2002</span><span class="en">Since 2002</span></td><td><span class="el">Στατικό κείμενο</span><span class="en">Static text</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<p><span class="el">Το κρίσιμο συμπέρασμα δεν αφορά τον όγκο, που είναι απολύτως διαχειρίσιμος. Αφορά τη <strong>μορφή</strong>: όλα τα παραπάνω είναι χειρόγραφοι πίνακες μέσα σε σελίδες, όχι εγγραφές σε βάση δεδομένων. Δεν υπάρχει αναζήτηση, φιλτράρισμα ή ταξινόμηση. Κάθε νέο μέλος, κάθε νέα εταιρεία και κάθε νέα εκδήλωση απαιτεί χειροκίνητη επέμβαση στον κώδικα της σελίδας.</span><span class="en">The critical conclusion is not about volume, which is entirely manageable. It is about <strong>format</strong>: all of the above are hand-maintained tables inside pages, not database records. There is no search, filtering or sorting. Every new member, company and event requires manual editing of page code.</span></p>
+
+<h3><span class="el">Ευρήματα</span><span class="en">Findings</span></h3>
+<p class="muted" style="font-size:.9rem"><span class="el">Ταξινόμηση κατά σοβαρότητα: <strong>Κρίσιμο</strong> — απαιτεί άμεση ενέργεια· <strong>Ουσιώδες</strong> — απαιτεί ενέργεια εντός του έργου· <strong>Παρατήρηση</strong> — καταγράφεται προς αποκατάσταση.</span><span class="en">Classified by severity: <strong>Critical</strong> — requires immediate action; <strong>Substantive</strong> — requires action within the project; <strong>Observation</strong> — recorded for remediation.</span></p>
+
+<div class="finding f1">
+  <div class="fhead"><span class="fid">F-01</span><span class="ftitle"><span class="el">Απώλεια ελέγχου του διαδικτυακού ονόματος .gr</span><span class="en">Loss of control of the .gr domain name</span></span><span class="flag"><span class="el">Κρίσιμο</span><span class="en">Critical</span></span></div>
+  <p><span class="el">Το διαδικτυακό όνομα με κατάληξη <code>.gr</code> δεν βρίσκεται πλέον υπό τον έλεγχο της Λέσχης και φιλοξενεί σήμερα περιεχόμενο τρίτου, άσχετο και ασύμβατο με τον χαρακτήρα του Σωματείου. Το προηγούμενο περιεχόμενο έχει αφαιρεθεί.</span><span class="en">The <code>.gr</code> domain name is no longer under the Club's control and currently hosts third-party content that is unrelated to and incompatible with the character of the association. The previous content has been removed.</span></p>
+  <p><span class="el">Το όνομα αυτό εμφανίζεται σε επίσημα δελτία τύπου της Λέσχης, στη σελίδα κοινωνικής δικτύωσης και σε δημοσιεύματα τρίτων. Επιπλέον, διεύθυνση ηλεκτρονικού ταχυδρομείου με την ίδια κατάληξη εξακολουθεί να δημοσιεύεται ως επίσημη — γεγονός που δημιουργεί κίνδυνο εκτροπής αλληλογραφίας.</span><span class="en">This name appears on the Club's official press releases, on its social media page and in third-party publications. In addition, an email address on the same domain continues to be published as official — creating a risk of correspondence being diverted.</span></p>
+</div>
+
+<div class="finding f1">
+  <div class="fhead"><span class="fid">F-02</span><span class="ftitle"><span class="el">Ελεύθερη πρόσβαση σε βιογραφικά σημειώματα</span><span class="en">Unrestricted access to submitted CVs</span></span><span class="flag"><span class="el">Κρίσιμο</span><span class="en">Critical</span></span></div>
+  <p><span class="el">Είκοσι ένα βιογραφικά σημειώματα υποψηφίων είναι αναρτημένα ως αρχεία ελεύθερα προσβάσιμα από οποιονδήποτε, χωρίς σύνδεση ή περιορισμό, και ευρετηριάσιμα από μηχανές αναζήτησης. Περιέχουν πλήρη προσωπικά δεδομένα.</span><span class="en">Twenty-one candidate CVs are published as files freely accessible to anyone, without login or restriction, and indexable by search engines. They contain full personal data.</span></p>
+  <p><span class="el">Επιπροσθέτως εντοπίστηκε <strong>εσφαλμένη αντιστοίχιση</strong>: δύο διαφορετικές καταχωρήσεις παραπέμπουν στο ίδιο αρχείο, με αποτέλεσμα το βιογραφικό ενός προσώπου να εμφανίζεται στο όνομα άλλου.</span><span class="en">In addition, an <strong>incorrect linkage</strong> was identified: two different entries point to the same file, so that one person's CV is displayed under another person's name.</span></p>
+</div>
+
+<div class="finding f2">
+  <div class="fhead"><span class="fid">F-03</span><span class="ftitle"><span class="el">Δημοσίευση προσωπικών στοιχείων επικοινωνίας</span><span class="en">Publication of personal contact details</span></span><span class="flag"><span class="el">Ουσιώδες</span><span class="en">Substantive</span></span></div>
+  <p><span class="el">Τα προσωπικά κινητά τηλέφωνα και οι ηλεκτρονικές διευθύνσεις των έντεκα μελών του Διοικητικού Συμβουλίου δημοσιεύονται σε αναγνώσιμη μορφή, όπως και ο πλήρης ονομαστικός κατάλογος των 337 μελών. Στον ναυτιλιακό κλάδο, τα στοιχεία αυτά αποτελούν συνήθη αφετηρία για στοχευμένες απόπειρες εξαπάτησης.</span><span class="en">The personal mobile numbers and email addresses of the eleven Board members are published in readable form, as is the full nominal list of 337 members. In the shipping sector these details are a common starting point for targeted fraud attempts.</span></p>
+</div>
+
+<div class="finding f2">
+  <div class="fhead"><span class="fid">F-04</span><span class="ftitle"><span class="el">Ορατά τεχνικά σφάλματα στη διεπαφή</span><span class="en">Visible technical defects in the interface</span></span><span class="flag"><span class="el">Ουσιώδες</span><span class="en">Substantive</span></span></div>
+  <p><span class="el">Σε δύο σελίδες εμφανίζονται στον επισκέπτη εσωτερικές παράμετροι διαμόρφωσης ως απλό κείμενο. Στη σελίδα επικοινωνίας, ο χάρτης δεν ενσωματώνεται και εμφανίζεται ως διεύθυνση κειμένου. Στον κατάλογο εταιρειών εντοπίστηκαν εσφαλμένη διεύθυνση εικόνας, λογότυπο δηλωμένο σε μη υποστηριζόμενη μορφή, κενές εικόνες, σύνδεσμος που παραπέμπει εσφαλμένα εντός της ιστοσελίδας, και μία καταχώρηση της οποίας ο κώδικας διαρρέει και συγχωνεύει δύο εταιρείες σε μία γραμμή.</span><span class="en">On two pages, internal configuration parameters are displayed to the visitor as plain text. On the contact page the map does not embed and appears as a text address. In the corporate directory we identified a malformed image address, a logo declared in an unsupported format, empty images, a link pointing incorrectly within the site, and one entry whose markup leaks and merges two companies into a single row.</span></p>
+</div>
+
+<div class="finding f2">
+  <div class="fhead"><span class="fid">F-05</span><span class="ftitle"><span class="el">Απουσία αγγλικής έκδοσης</span><span class="en">No English version</span></span><span class="flag"><span class="el">Ουσιώδες</span><span class="en">Substantive</span></span></div>
+  <p><span class="el">Η ιστοσελίδα διατίθεται αποκλειστικά στα ελληνικά, ενώ ο κατάλογος εταιρειών-μελών περιλαμβάνει οργανισμούς με έδρα στο Λονδίνο, το Ντουμπάι, το Αμβούργο, την Κωνσταντινούπολη και τις Ηνωμένες Πολιτείες. Ο διεθνής χαρακτήρας του Σωματείου δεν αποτυπώνεται στην ψηφιακή του παρουσία.</span><span class="en">The website is available in Greek only, while the corporate member list includes organisations based in London, Dubai, Hamburg, Istanbul and the United States. The international character of the association is not reflected in its digital presence.</span></p>
+</div>
+
+<div class="finding f3">
+  <div class="fhead"><span class="fid">F-06</span><span class="ftitle"><span class="el">Εξωτερική εξάρτηση για το ιστορικό αρχείο</span><span class="en">External dependency for the historical archive</span></span><span class="flag"><span class="el">Παρατήρηση</span><span class="en">Observation</span></span></div>
+  <p><span class="el">Οι δραστηριότητες των ετών 2006–2017 δεν φιλοξενούνται στην ιστοσελίδα αλλά σε εξωτερικό φάκελο υπηρεσίας cloud. Έντεκα έτη ιστορίας του Σωματείου βρίσκονται εκτός του ελέγχου του και εκτός αναζήτησης.</span><span class="en">Activities for 2006–2017 are not hosted on the website but in an external cloud folder. Eleven years of the association's history sit outside its control and outside search.</span></p>
+</div>
+
+<div class="finding f3">
+  <div class="fhead"><span class="fid">F-07</span><span class="ftitle"><span class="el">Ασυνέπειες στα δεδομένα μελών</span><span class="en">Inconsistencies in member data</span></span><span class="flag"><span class="el">Παρατήρηση</span><span class="en">Observation</span></span></div>
+  <p><span class="el">Η αρίθμηση του καταλόγου μελών παρουσιάζει κενό, ενώ εντοπίζονται καταχωρήσεις που φαίνεται να αφορούν το ίδιο πρόσωπο με διαφορετική γραφή επωνύμου. Πρόκειται για αναμενόμενη συνέπεια της χειροκίνητης τήρησης και θα αποκατασταθεί κατά τη μετάπτωση σε βάση δεδομένων.</span><span class="en">The member list numbering contains a gap, and entries were found that appear to refer to the same person with different spellings of the surname. This is an expected consequence of manual maintenance and will be corrected during migration to a database.</span></p>
+</div>
+
+<!-- ── 4 ── -->
+<h2 id="s4"><span class="num"><span class="el">Ενότητα 4</span><span class="en">Section 4</span></span><span class="el">Δύο ενέργειες που δεν αναμένουν το έργο</span><span class="en">Two actions that should not wait for the project</span></h2>
+<div class="waterline"></div>
+
+<div class="callout urgent">
+  <p><span class="el">Τα ευρήματα F-01 και F-02 δεν σχετίζονται με τον σχεδιασμό της νέας πλατφόρμας και <strong>δεν πρέπει να συνδεθούν με το χρονοδιάγραμμά της</strong>. Το πρώτο επιδεινώνεται με την πάροδο του χρόνου· το δεύτερο συνιστά ενεργή έκθεση προσωπικών δεδομένων τρίτων προσώπων.</span><span class="en">Findings F-01 and F-02 are unrelated to the design of the new platform and <strong>should not be tied to its timeline</strong>. The first worsens with time; the second constitutes an active exposure of third parties' personal data.</span></p>
+</div>
+
+<div class="tbl-scroll">
+<table>
+  <caption><span class="el">Προτεινόμενες άμεσες ενέργειες</span><span class="en">Recommended immediate actions</span></caption>
+  <thead><tr><th style="width:8%">#</th><th style="width:56%"><span class="el">Ενέργεια</span><span class="en">Action</span></th><th><span class="el">Ευθύνη</span><span class="en">Owner</span></th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td><span class="el">Έλεγχος καθεστώτος του ονόματος <code>.gr</code> στο μητρώο και διερεύνηση δυνατότητας ανάκτησης</span><span class="en">Check the registry status of the <code>.gr</code> name and investigate recovery options</span></td><td><span class="el">Τεχνική ομάδα</span><span class="en">Technical team</span></td></tr>
+    <tr><td>2</td><td><span class="el">Επιβεβαίωση ότι καμία ενεργή διεύθυνση αλληλογραφίας δεν εξαρτάται από το όνομα <code>.gr</code></span><span class="en">Confirm that no active mail address depends on the <code>.gr</code> name</span></td><td><span class="el">Τεχνική ομάδα</span><span class="en">Technical team</span></td></tr>
+    <tr><td>3</td><td><span class="el">Απόσυρση των 21 βιογραφικών από δημόσια πρόσβαση· διόρθωση της εσφαλμένης αντιστοίχισης</span><span class="en">Withdraw the 21 CVs from public access; correct the incorrect linkage</span></td><td><span class="el">Τεχνική ομάδα</span><span class="en">Technical team</span></td></tr>
+    <tr><td>4</td><td><span class="el">Ενοποίηση των αναφορών σε μία και μόνη επίσημη διεύθυνση, σε ιστοσελίδα, κοινωνικά δίκτυα και υπογραφές</span><span class="en">Consolidate all references to a single official address across website, social media and signatures</span></td><td><span class="el">Λέσχη</span><span class="en">Club</span></td></tr>
+    <tr><td>5</td><td><span class="el">Ενημέρωση μελών και εταιρειών-μελών για την έγκυρη διεύθυνση επικοινωνίας</span><span class="en">Notify members and corporate members of the valid contact address</span></td><td><span class="el">Λέσχη</span><span class="en">Club</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ── 5 ── -->
+<h2 id="s5"><span class="num"><span class="el">Ενότητα 5</span><span class="en">Section 5</span></span><span class="el">Στόχοι και κριτήρια επιτυχίας</span><span class="en">Objectives and success criteria</span></h2>
+<div class="waterline"></div>
+
+<p><span class="el">Ένα έργο χωρίς μετρήσιμα κριτήρια δεν μπορεί να αξιολογηθεί. Προτείνονται τα ακόλουθα, με μέτρηση δώδεκα μήνες μετά τη θέση σε λειτουργία.</span><span class="en">A project without measurable criteria cannot be evaluated. The following are proposed, measured twelve months after go-live.</span></p>
+
+<div class="tbl-scroll">
+<table>
+  <thead><tr><th style="width:38%"><span class="el">Στόχος</span><span class="en">Objective</span></th><th><span class="el">Κριτήριο επιτυχίας</span><span class="en">Success criterion</span></th></tr></thead>
+  <tbody>
+    <tr><td><span class="el">Ενεργοποίηση μελών</span><span class="en">Member activation</span></td><td><span class="el">Ποσοστό μελών με ενεργοποιημένο λογαριασμό</span><span class="en">Proportion of members with an activated account</span></td></tr>
+    <tr><td><span class="el">Αυτονομία διαχείρισης</span><span class="en">Administrative autonomy</span></td><td><span class="el">Ανάρτηση εκδήλωσης ή ανακοίνωσης από τη Λέσχη χωρίς τεχνική υποστήριξη</span><span class="en">Club publishes an event or announcement without technical support</span></td></tr>
+    <tr><td><span class="el">Συμμετοχή σε εκδηλώσεις</span><span class="en">Event participation</span></td><td><span class="el">Δηλώσεις συμμετοχής μέσω της πλατφόρμας αντί ηλεκτρονικού ταχυδρομείου</span><span class="en">Registrations via the platform rather than by email</span></td></tr>
+    <tr><td><span class="el">Εταιρική συμμετοχή</span><span class="en">Corporate participation</span></td><td><span class="el">Εταιρείες-μέλη που ενημέρωσαν το προφίλ τους τουλάχιστον μία φορά</span><span class="en">Corporate members who updated their profile at least once</span></td></tr>
+    <tr><td><span class="el">Προστασία δεδομένων</span><span class="en">Data protection</span></td><td><span class="el">Μηδέν προσωπικά δεδομένα μελών ή υποψηφίων προσβάσιμα χωρίς σύνδεση</span><span class="en">Zero member or candidate personal data accessible without login</span></td></tr>
+    <tr><td><span class="el">Διεθνής προσβασιμότητα</span><span class="en">International accessibility</span></td><td><span class="el">Πλήρης κάλυψη περιεχομένου σε ελληνικά και αγγλικά</span><span class="en">Full content coverage in Greek and English</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ── 6 ── -->
+<h2 id="s6"><span class="num"><span class="el">Ενότητα 6</span><span class="en">Section 6</span></span><span class="el">Εύρος πρώτης έκδοσης</span><span class="en">Scope of the first release</span></h2>
+<div class="waterline"></div>
+
+<p><span class="el">Η οριοθέτηση του εύρους είναι ο σημαντικότερος παράγοντας επιτυχίας. Προτείνεται πρώτη έκδοση που τίθεται σε λειτουργία σε εύλογο χρόνο, και δεύτερη φάση που ενεργοποιείται αφού αποδειχθεί η πραγματική χρήση.</span><span class="en">Defining scope is the single greatest determinant of success. We propose a first release that goes live within a reasonable timeframe, and a second phase activated once real usage is demonstrated.</span></p>
+
+<div class="scopegrid">
+  <div class="scopecol">
+    <h4><span class="el">Εντός πρώτης έκδοσης</span><span class="en">In the first release</span></h4>
+    <ul>
+      <li><span class="el">Δημόσια ιστοσελίδα, δίγλωσση, πλήρως προσαρμοστική</span><span class="en">Public bilingual website, fully responsive</span></li>
+      <li><span class="el">Σύστημα διαχείρισης περιεχομένου για τη Λέσχη</span><span class="en">Content management for the Club</span></li>
+      <li><span class="el">Ημερολόγιο και αρχείο εκδηλώσεων</span><span class="en">Events calendar and archive</span></li>
+      <li><span class="el">Πύλη μελών: σύνδεση, προφίλ, ανακοινώσεις, έγγραφα</span><span class="en">Members portal: login, profile, announcements, documents</span></li>
+      <li><span class="el">Κατάλογος μελών με αναζήτηση, εντός της πύλης</span><span class="en">Searchable member directory, inside the portal</span></li>
+      <li><span class="el">Δήλωση συμμετοχής σε εκδηλώσεις</span><span class="en">Event registration</span></li>
+      <li><span class="el">Εταιρικά προφίλ με διαχείριση από την ίδια την εταιρεία</span><span class="en">Corporate profiles, self-managed by each company</span></li>
+      <li><span class="el">Μετάπτωση υφιστάμενων δεδομένων και αρχείου</span><span class="en">Migration of existing data and archive</span></li>
+      <li><span class="el">Διαχείριση αιτήσεων εγγραφής νέων μελών</span><span class="en">Handling of new membership applications</span></li>
+    </ul>
+  </div>
+  <div class="scopecol out">
+    <h4><span class="el">Εκτός πρώτης έκδοσης</span><span class="en">Outside the first release</span></h4>
+    <ul>
+      <li><span class="el">Αγγελίες εργασίας με ανάρτηση από τις εταιρείες</span><span class="en">Job listings posted by companies</span></li>
+      <li><span class="el">Υποβολή και διαχείριση βιογραφικών</span><span class="en">CV submission and management</span></li>
+      <li><span class="el">Εταιρικά νέα με αυτόνομη δημοσίευση</span><span class="en">Corporate news with self-publication</span></li>
+      <li><span class="el">Λειτουργίες δικτύωσης μεταξύ εταιρειών</span><span class="en">Company-to-company networking features</span></li>
+      <li><span class="el">Ηλεκτρονική είσπραξη συνδρομών</span><span class="en">Online subscription payments</span></li>
+      <li><span class="el">Ενημερωτικό δελτίο προς μέλη</span><span class="en">Member newsletter</span></li>
+      <li><span class="el">Εφαρμογή κινητού</span><span class="en">Mobile application</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="callout note">
+  <p><span class="el"><strong>Γιατί οι αγγελίες και τα βιογραφικά μετατίθενται.</strong> Είναι οι λειτουργίες με τη μεγαλύτερη έκθεση σε προσωπικά δεδομένα και τις περισσότερες απαιτήσεις συγκατάθεσης, διατήρησης και διαγραφής. Υλοποιούνται σωστά αφού η πλατφόρμα έχει σταθεροποιηθεί και η Λέσχη έχει θεσπίσει τις σχετικές πολιτικές — όχι παράλληλα με την αρχική εγκατάσταση.</span><span class="en"><strong>Why listings and CVs are deferred.</strong> These carry the greatest personal-data exposure and the most demanding consent, retention and deletion requirements. They are best built once the platform is stable and the Club has adopted the relevant policies — not alongside the initial deployment.</span></p>
+</div>
+
+<!-- ── 7 ── -->
+<h2 id="s7"><span class="num"><span class="el">Ενότητα 7</span><span class="en">Section 7</span></span><span class="el">Τι δεν αναλαμβάνουμε</span><span class="en">What is not undertaken</span></h2>
+<div class="waterline"></div>
+
+<p><span class="el">Η ενότητα αυτή υπάρχει για να αποφευχθούν παρανοήσεις. Τα ακόλουθα δεν περιλαμβάνονται στην παρούσα πρόταση. Μπορούν να συμφωνηθούν χωριστά, εφόσον υπάρξει σχετικό αίτημα.</span><span class="en">This section exists to avoid misunderstanding. The following are not included in this proposal. They can be agreed separately if requested.</span></p>
+
+<div class="tbl-scroll">
+<table>
+  <thead><tr><th style="width:40%"><span class="el">Δεν περιλαμβάνεται</span><span class="en">Not included</span></th><th><span class="el">Σχόλιο</span><span class="en">Comment</span></th></tr></thead>
+  <tbody>
+    <tr><td class="tech"><span class="el">Συγγραφή κειμένων</span><span class="en">Copywriting</span></td><td><span class="el">Το περιεχόμενο παρέχεται από τη Λέσχη. Αναλαμβάνουμε τη δομή και την τοποθέτησή του.</span><span class="en">Content is provided by the Club. We undertake its structure and placement.</span></td></tr>
+    <tr><td class="tech"><span class="el">Μετάφραση αρχείου εκδηλώσεων</span><span class="en">Translation of the events archive</span></td><td><span class="el">Η διεπαφή παραδίδεται δίγλωσση. Η μετάφραση των ≈100 ιστορικών καταχωρήσεων απαιτεί χωριστή συμφωνία.</span><span class="en">The interface is delivered bilingual. Translating the ≈100 historical entries requires a separate agreement.</span></td></tr>
+    <tr><td class="tech"><span class="el">Φωτογράφιση</span><span class="en">Photography</span></td><td><span class="el">Χρησιμοποιείται το υπάρχον υλικό της Λέσχης.</span><span class="en">Existing Club material is used.</span></td></tr>
+    <tr><td class="tech"><span class="el">Σχεδιασμός νέου λογοτύπου</span><span class="en">New logo design</span></td><td><span class="el">Διατηρείται το υφιστάμενο σήμα. Η Φάση 2 αφορά χρωματική παλέτα και τυπογραφία.</span><span class="en">The existing emblem is retained. Phase 2 covers palette and typography.</span></td></tr>
+    <tr><td class="tech"><span class="el">Νομικά κείμενα</span><span class="en">Legal texts</span></td><td><span class="el">Η πολιτική απορρήτου και οι όροι χρήσης συντάσσονται από νομικό σύμβουλο της Λέσχης· εμείς παρέχουμε την τεχνική περιγραφή.</span><span class="en">Privacy policy and terms are drafted by the Club's legal adviser; we supply the technical description.</span></td></tr>
+    <tr><td class="tech"><span class="el">Ψηφιοποίηση έντυπου αρχείου</span><span class="en">Digitisation of print archive</span></td><td><span class="el">Μεταφέρεται ό,τι υπάρχει ήδη σε ψηφιακή μορφή.</span><span class="en">What already exists in digital form is migrated.</span></td></tr>
+    <tr><td class="tech"><span class="el">Διαχείριση κοινωνικών δικτύων</span><span class="en">Social media management</span></td><td><span class="el">Παραμένει στη Λέσχη.</span><span class="en">Remains with the Club.</span></td></tr>
+    <tr><td class="tech"><span class="el">Εταιρική ηλεκτρονική αλληλογραφία</span><span class="en">Corporate email service</span></td><td><span class="el">Χωριστή υπηρεσία. Μπορούμε να συμβουλεύσουμε επί της επιλογής.</span><span class="en">A separate service. We can advise on the choice.</span></td></tr>
+    <tr><td class="tech"><span class="el">Φιλοξενία και λειτουργία υποδομής</span><span class="en">Hosting and infrastructure operation</span></td><td><span class="el">Η φιλοξενία παραμένει ευθύνη της Λέσχης. Αναλαμβάνουμε τον σχεδιασμό της υποδομής, την αρχική εγκατάσταση και την τεκμηρίωση· η συνδρομή και ο λογαριασμός τηρούνται στο όνομα της Λέσχης. Βλ. Ενότητα 16.</span><span class="en">Hosting remains the Club's responsibility. We undertake infrastructure design, initial provisioning and documentation; the subscription and account are held in the Club's name. See Section 16.</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ── 8 ── -->
+<h2 id="s8"><span class="num"><span class="el">Ενότητα 8</span><span class="en">Section 8</span></span><span class="el">Προτεινόμενη αρχιτεκτονική</span><span class="en">Proposed architecture</span></h2>
+<div class="waterline"></div>
+
+<p><span class="el">Η αρχιτεκτονική διαχωρίζει τη διεπαφή από τη λογική και τα δεδομένα. Τα προσωπικά δεδομένα παραμένουν σε διαχειριζόμενη βάση εντός Ευρωπαϊκής Ένωσης, ενώ τα διαπιστευτήρια πρόσβασης δεν αποθηκεύονται στην εφαρμογή αλλά σε ειδική υπηρεσία ταυτοποίησης.</span><span class="en">The architecture separates interface from logic and data. Personal data remains in a managed database within the European Union, while access credentials are not stored in the application but in a dedicated identity service.</span></p>
+
+<figure>
+<svg class="arch" viewBox="0 0 800 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture diagram">
+  <rect width="800" height="430" fill="#FFFFFF"/>
+  <rect x="0" y="0" width="800" height="4" fill="#D99A2B"/>
+  <rect x="34" y="52" width="150" height="46" rx="2" fill="#D9EBF0" stroke="#B9D9E4"/>
+  <text x="109" y="73" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12.5" font-weight="600" fill="#16256E">Επισκέπτες</text>
+  <text x="109" y="88" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10.5" fill="#5A6478">Visitors</text>
+  <rect x="34" y="115" width="150" height="46" rx="2" fill="#D9EBF0" stroke="#B9D9E4"/>
+  <text x="109" y="136" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12.5" font-weight="600" fill="#16256E">Μέλη</text>
+  <text x="109" y="151" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10.5" fill="#5A6478">Members</text>
+  <rect x="34" y="178" width="150" height="46" rx="2" fill="#D9EBF0" stroke="#B9D9E4"/>
+  <text x="109" y="199" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12.5" font-weight="600" fill="#16256E">Εταιρείες</text>
+  <text x="109" y="214" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10.5" fill="#5A6478">Companies</text>
+  <rect x="34" y="241" width="150" height="46" rx="2" fill="#16256E"/>
+  <text x="109" y="262" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12.5" font-weight="600" fill="#FFFFFF">Διαχείριση</text>
+  <text x="109" y="277" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10.5" fill="#C6D2F0">Administration</text>
+  <path d="M184 75 L246 160" stroke="#B9D9E4" stroke-width="1.4" fill="none"/>
+  <path d="M184 138 L246 162" stroke="#B9D9E4" stroke-width="1.4" fill="none"/>
+  <path d="M184 201 L246 172" stroke="#B9D9E4" stroke-width="1.4" fill="none"/>
+  <path d="M184 264 L246 182" stroke="#B9D9E4" stroke-width="1.4" fill="none"/>
+  <rect x="250" y="132" width="168" height="72" rx="2" fill="#FFFFFF" stroke="#16256E" stroke-width="1.6"/>
+  <text x="334" y="158" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12.5" font-weight="700" fill="#16256E">Διεπαφή χρήστη</text>
+  <text x="334" y="174" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10.5" fill="#5A6478">Vue 3 · Static Web Apps</text>
+  <text x="334" y="191" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#5A6478">EL / EN</text>
+  <path d="M418 168 L470 168" stroke="#16256E" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+  <rect x="474" y="132" width="168" height="72" rx="2" fill="#FFFFFF" stroke="#16256E" stroke-width="1.6"/>
+  <text x="558" y="158" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12.5" font-weight="700" fill="#16256E">Λογική εφαρμογής</text>
+  <text x="558" y="174" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10.5" fill="#5A6478">Spring Boot 4 · Java 25</text>
+  <text x="558" y="191" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#5A6478">Container Apps</text>
+  <rect x="474" y="46" width="168" height="60" rx="2" fill="#FDF6E9" stroke="#D99A2B" stroke-width="1.4"/>
+  <text x="558" y="70" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" font-weight="700" fill="#8A5F0F">Ταυτοποίηση</text>
+  <text x="558" y="86" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10.5" fill="#8A5F0F">Entra External ID</text>
+  <path d="M558 132 L558 110" stroke="#D99A2B" stroke-width="1.4" fill="none" marker-end="url(#arg)"/>
+  <rect x="474" y="232" width="168" height="60" rx="2" fill="#16256E"/>
+  <text x="558" y="256" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">Βάση δεδομένων</text>
+  <text x="558" y="272" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10.5" fill="#C6D2F0">PostgreSQL 18 · EU</text>
+  <path d="M558 204 L558 228" stroke="#16256E" stroke-width="1.6" fill="none" marker-end="url(#ar)"/>
+  <rect x="666" y="232" width="106" height="60" rx="2" fill="#FFFFFF" stroke="#B9D9E4" stroke-width="1.4"/>
+  <text x="719" y="256" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="11" font-weight="700" fill="#16256E">Αρχεία</text>
+  <text x="719" y="272" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#5A6478">Blob Storage</text>
+  <path d="M642 262 L662 262" stroke="#B9D9E4" stroke-width="1.4" fill="none"/>
+  <rect x="666" y="132" width="106" height="72" rx="2" fill="#FFFFFF" stroke="#B9D9E4" stroke-width="1.4"/>
+  <text x="719" y="160" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="11" font-weight="700" fill="#16256E">Μυστικά</text>
+  <text x="719" y="176" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10" fill="#5A6478">Key Vault</text>
+  <path d="M642 168 L662 168" stroke="#B9D9E4" stroke-width="1.4" fill="none"/>
+  <rect x="452" y="26" width="336" height="286" fill="none" stroke="#3B4C96" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="620" y="330" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10.5" font-weight="700" fill="#3B4C96" letter-spacing="1">ΠΕΡΙΜΕΤΡΟΣ ΔΕΔΟΜΕΝΩΝ · ΕΕ / EU DATA PERIMETER</text>
+  <rect x="34" y="356" width="738" height="46" rx="2" fill="#FAFCFD" stroke="#D6DCE8"/>
+  <text x="403" y="376" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="11.5" font-weight="700" fill="#16256E">Αυτοματοποιημένη ανάπτυξη, αντίγραφα ασφαλείας, παρακολούθηση</text>
+  <text x="403" y="392" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-size="10.5" fill="#5A6478">Automated deployment, backups and monitoring</text>
+  <defs>
+    <marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#16256E"/></marker>
+    <marker id="arg" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#D99A2B"/></marker>
+  </defs>
+</svg>
+<figcaption><span class="el">Σχ. 1 — Λογική αρχιτεκτονική. Τα προσωπικά δεδομένα και τα διαπιστευτήρια παραμένουν εντός της περιμέτρου δεδομένων ΕΕ.</span><span class="en">Fig. 1 — Logical architecture. Personal data and credentials remain within the EU data perimeter.</span></figcaption>
+</figure>
+
+<!-- ── 9 ── -->
+<h2 id="s9"><span class="num"><span class="el">Ενότητα 9</span><span class="en">Section 9</span></span><span class="el">Μετάπτωση δεδομένων και ιστορικού αρχείου</span><span class="en">Data and archive migration</span></h2>
+<div class="waterline"></div>
+
+<p><span class="el">Το Σωματείο συμπλήρωσε εικοσιπέντε έτη λειτουργίας. Η ιστορία του — εκδηλώσεις, δωρεές από το 2002, μητρώο μελών — αποτελεί περιουσιακό στοιχείο και όχι απλώς περιεχόμενο. Η μετάπτωση αντιμετωπίζεται αναλόγως.</span><span class="en">The association has completed twenty-five years of operation. Its history — events, donations since 2002, the member register — is an asset, not merely content. Migration is treated accordingly.</span></p>
+
+<div class="tbl-scroll">
+<table>
+  <thead><tr><th style="width:30%"><span class="el">Σύνολο δεδομένων</span><span class="en">Dataset</span></th><th style="width:34%"><span class="el">Μεταχείριση</span><span class="en">Treatment</span></th><th><span class="el">Επαλήθευση</span><span class="en">Verification</span></th></tr></thead>
+  <tbody>
+    <tr><td class="tech"><span class="el">Μητρώο μελών</span><span class="en">Member register</span></td><td><span class="el">Μετατροπή σε εγγραφές βάσης· καθαρισμός διπλοεγγραφών</span><span class="en">Converted to database records; duplicates cleaned</span></td><td><span class="el">Επιβεβαίωση ανά εγγραφή από τη Γραμματεία</span><span class="en">Record-by-record confirmation by the Secretariat</span></td></tr>
+    <tr><td class="tech"><span class="el">Εταιρείες-μέλη</span><span class="en">Corporate members</span></td><td><span class="el">Μετατροπή σε προφίλ· αποκατάσταση εσφαλμένων λογοτύπων</span><span class="en">Converted to profiles; broken logos restored</span></td><td><span class="el">Έλεγχος από κάθε εταιρεία κατά την πρώτη σύνδεση</span><span class="en">Reviewed by each company at first login</span></td></tr>
+    <tr><td class="tech"><span class="el">Εκδηλώσεις 2018–2026</span><span class="en">Events 2018–2026</span></td><td><span class="el">Μεταφορά με διατήρηση ημερομηνιών και φωτογραφικού υλικού</span><span class="en">Migrated preserving dates and photographic material</span></td><td><span class="el">Αντιπαραβολή πλήθους πριν και μετά</span><span class="en">Count reconciliation before and after</span></td></tr>
+    <tr><td class="tech"><span class="el">Αρχείο 2006–2017</span><span class="en">Archive 2006–2017</span></td><td><span class="el">Μεταφορά από τον εξωτερικό φάκελο εντός της πλατφόρμας</span><span class="en">Moved from the external folder into the platform</span></td><td><span class="el">Έλεγχος ακεραιότητας αρχείων</span><span class="en">File integrity check</span></td></tr>
+    <tr><td class="tech"><span class="el">Δωρεές από 2002</span><span class="en">Donations since 2002</span></td><td><span class="el">Μετατροπή σε δομημένες εγγραφές ανά έτος και αποδέκτη</span><span class="en">Converted to structured records by year and recipient</span></td><td><span class="el">Αντιπαραβολή με το υφιστάμενο κείμενο</span><span class="en">Reconciled against the existing text</span></td></tr>
+    <tr><td class="tech"><span class="el">Βιογραφικά</span><span class="en">CVs</span></td><td><span class="el">Δεν μεταφέρονται. Αποσύρονται κατά τη Φάση 0.</span><span class="en">Not migrated. Withdrawn during Phase 0.</span></td><td>—</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="callout">
+  <p><span class="el">Η υφιστάμενη ιστοσελίδα παραμένει σε λειτουργία μέχρι την πλήρη επαλήθευση της μετάπτωσης. Δεν διακόπτεται τίποτε πριν επιβεβαιωθεί ότι το νέο σύστημα περιέχει τα πάντα.</span><span class="en">The existing website remains operational until migration is fully verified. Nothing is decommissioned before the new system is confirmed to hold everything.</span></p>
+</div>
+
+<!-- ── 10 ── -->
+<h2 id="s10"><span class="num"><span class="el">Ενότητα 10</span><span class="en">Section 10</span></span><span class="el">Τεκμηρίωση τεχνολογικών επιλογών</span><span class="en">Technology rationale</span></h2>
+<div class="waterline"></div>
+
+<p><span class="el">Κάθε επιλογή παρατίθεται μαζί με την εναλλακτική που εξετάστηκε και τον λόγο απόρριψής της. Κριτήριο δεν είναι η νεωτερικότητα αλλά η <strong>διάρκεια υποστήριξης</strong>: το σύστημα προορίζεται να λειτουργήσει για μία δεκαετία με ελάχιστη συντήρηση.</span><span class="en">Each choice is presented together with the alternative considered and the reason it was not selected. The criterion is not novelty but <strong>support longevity</strong>: this system is intended to run for a decade with minimal maintenance.</span></p>
+
+<div class="tbl-scroll">
+<table>
+  <thead><tr><th style="width:19%"><span class="el">Επιλογή</span><span class="en">Choice</span></th><th style="width:21%"><span class="el">Εναλλακτική</span><span class="en">Alternative</span></th><th><span class="el">Αιτιολόγηση</span><span class="en">Rationale</span></th></tr></thead>
+  <tbody>
+    <tr><td class="tech">Java 25 LTS</td><td>Java 21 LTS</td><td><span class="el">Η Java 25 κυκλοφόρησε τον Σεπτέμβριο 2025 με υποστήριξη έως το 2033. Η Java 21 παύει να λαμβάνει δωρεάν ενημερώσεις από την Oracle τον Σεπτέμβριο 2026. Για σύστημα δεκαετίας, η επιλογή είναι μονόδρομος.</span><span class="en">Java 25 was released in September 2025 with support to 2033. Java 21 stops receiving free Oracle updates in September 2026. For a decade-long system this is the only sensible choice.</span></td></tr>
+    <tr><td class="tech">Spring Boot 4.1</td><td>Spring Boot 3.5</td><td><span class="el">Η σειρά 3.x έφτασε στο τέλος της δωρεάν υποστήριξης στις 30 Ιουνίου 2026. Η 4.1 κυκλοφόρησε τον Ιούνιο 2026 και είναι η τρέχουσα προτεινόμενη έκδοση για νέα έργα.</span><span class="en">The 3.x line reached end of open-source support on 30 June 2026. Version 4.1 was released in June 2026 and is the current recommended target for new projects.</span></td></tr>
+    <tr><td class="tech">Vue 3.5</td><td>Vue 3.6 (RC)</td><td><span class="el">Η 3.6 βρίσκεται σε φάση υποψήφιας έκδοσης. Επιλέγεται συνειδητά η σταθερή σειρά 3.5 και όχι η νεότερη — δεν τοποθετούμε προδημοσιευμένο κώδικα σε παραγωγικό σύστημα σωματείου.</span><span class="en">Version 3.6 is at release-candidate stage. We deliberately select the stable 3.5 line rather than the newer one — pre-release code does not belong in an association's production system.</span></td></tr>
+    <tr><td class="tech">Node.js 24 LTS</td><td>Node.js 22 / 26</td><td><span class="el">Η 24 είναι η ενεργή έκδοση μακράς υποστήριξης έως τον Απρίλιο 2028. Η 22 εισέρχεται σε φάση συντήρησης· η 26 δεν έχει ακόμη λάβει καθεστώς μακράς υποστήριξης.</span><span class="en">Version 24 is the Active LTS line with support to April 2028. Version 22 is entering maintenance; version 26 has not yet entered LTS.</span></td></tr>
+    <tr><td class="tech">PostgreSQL 18</td><td><span class="el">PostgreSQL 17 / μη σχεσιακή</span><span class="en">PostgreSQL 17 / non-relational</span></td><td><span class="el">Υποστηρίζεται στη διαχειριζόμενη υπηρεσία έως τον Νοέμβριο 2030. Τα δεδομένα μελών, εταιρειών και εκδηλώσεων είναι εγγενώς σχεσιακά· μη σχεσιακή βάση θα επιβάρυνε χωρίς όφελος.</span><span class="en">Supported on the managed service to November 2030. Member, company and event data are inherently relational; a non-relational store would add complexity without benefit.</span></td></tr>
+    <tr><td class="tech">Entra External ID</td><td><span class="el">Ταυτοποίηση εντός εφαρμογής</span><span class="en">In-application authentication</span></td><td><span class="el">Τα διαπιστευτήρια δεν αποθηκεύονται στην εφαρμογή. Η διαχείριση κωδικών, η επαναφορά και η πολυπαραγοντική ταυτοποίηση καλύπτονται από εξειδικευμένη υπηρεσία που ελέγχεται και ενημερώνεται από τον πάροχο.</span><span class="en">Credentials are not stored in the application. Password handling, resets and multi-factor authentication are delegated to a dedicated service audited and maintained by the provider.</span></td></tr>
+    <tr><td class="tech">Container Apps</td><td><span class="el">Εικονική μηχανή</span><span class="en">Virtual machine</span></td><td><span class="el">Δεν απαιτεί διαχείριση λειτουργικού συστήματος, ενημερώσεων ασφαλείας ή εξυπηρετητή. Για οργανισμό χωρίς τεχνικό τμήμα, αυτή είναι η καθοριστική διαφορά.</span><span class="en">Requires no management of operating system, security patching or server. For an organisation without an IT department this is the decisive difference.</span></td></tr>
+    <tr><td class="tech"><span class="el">Περιοχή ΕΕ</span><span class="en">EU region</span></td><td><span class="el">Περιοχή εκτός ΕΕ</span><span class="en">Non-EU region</span></td><td><span class="el">Τα προσωπικά δεδομένα μελών και εταιρειών παραμένουν εντός Ευρωπαϊκής Ένωσης. Απλοποιεί ουσιωδώς τη συμμόρφωση και αποτελεί συνήθη απαίτηση εταιρικών μελών με πολιτικές προμηθειών.</span><span class="en">Member and company personal data remain within the European Union. This materially simplifies compliance and is a common requirement of corporate members with procurement policies.</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="callout">
+  <p><span class="el"><strong>Σημείωση επί της μεθόδου.</strong> Οι ημερομηνίες υποστήριξης προέρχονται από τις επίσημες πηγές των αντίστοιχων έργων και παρόχων και ίσχυαν κατά την ημερομηνία σύνταξης. Οι κύκλοι ζωής μεταβάλλονται· η επανεξέτασή τους αποτελεί μέρος της ετήσιας συντήρησης.</span><span class="en"><strong>Note on method.</strong> Support dates are drawn from the official sources of the respective projects and providers and were current at the date of writing. Lifecycles change; reviewing them is part of annual maintenance.</span></p>
+</div>
+
+<!-- ── 11 ── -->
+<h2 id="s11"><span class="num"><span class="el">Ενότητα 11</span><span class="en">Section 11</span></span><span class="el">Ασφάλεια και προσωπικά δεδομένα</span><span class="en">Security and personal data</span></h2>
+<div class="waterline"></div>
+
+<p><span class="el">Με τη λειτουργία της πλατφόρμας, η Λέσχη καθίσταται υπεύθυνη επεξεργασίας δεδομένων 337 φυσικών μελών και των εκπροσώπων 125 εταιρειών. Αυτό δεν είναι τυπική υποχρέωση· είναι θεσμική ευθύνη που πρέπει να αναληφθεί ρητά.</span><span class="en">Once the platform is operating, the Club becomes data controller for 337 individual members and the representatives of 125 companies. This is not a formality; it is an institutional responsibility that must be assumed explicitly.</span></p>
+
+<h3><span class="el">Ποιος βλέπει τι</span><span class="en">Who sees what</span></h3>
+<div class="tbl-scroll">
+<table>
+  <thead><tr>
+    <th style="width:34%"><span class="el">Πληροφορία</span><span class="en">Information</span></th>
+    <th><span class="el">Επισκέπτης</span><span class="en">Visitor</span></th>
+    <th><span class="el">Μέλος</span><span class="en">Member</span></th>
+    <th><span class="el">Εκπρόσωπος</span><span class="en">Company rep</span></th>
+    <th><span class="el">Διαχειριστής</span><span class="en">Admin</span></th>
+  </tr></thead>
+  <tbody>
+    <tr><td><span class="el">Εκδηλώσεις, δωρεές, ιστορικό</span><span class="en">Events, donations, history</span></td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+    <tr><td><span class="el">Κατάλογος εταιρειών-μελών</span><span class="en">Corporate member directory</span></td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+    <tr><td><span class="el">Ονόματα φυσικών μελών</span><span class="en">Individual member names</span></td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td></tr>
+    <tr><td><span class="el">Στοιχεία επικοινωνίας μελών</span><span class="en">Member contact details</span></td><td class="no">—</td><td><span class="el">Κατ' επιλογή του μέλους</span><span class="en">At member's choice</span></td><td class="no">—</td><td class="yes">✓</td></tr>
+    <tr><td><span class="el">Ανακοινώσεις μόνο για μέλη</span><span class="en">Members-only announcements</span></td><td class="no">—</td><td class="yes">✓</td><td class="no">—</td><td class="yes">✓</td></tr>
+    <tr><td><span class="el">Επεξεργασία εταιρικού προφίλ</span><span class="en">Edit corporate profile</span></td><td class="no">—</td><td class="no">—</td><td><span class="el">Μόνο το δικό της</span><span class="en">Own only</span></td><td class="yes">✓</td></tr>
+    <tr><td><span class="el">Δηλώσεις συμμετοχής σε εκδηλώσεις</span><span class="en">Event registrations</span></td><td class="no">—</td><td><span class="el">Μόνο τις δικές του</span><span class="en">Own only</span></td><td class="no">—</td><td class="yes">✓</td></tr>
+    <tr><td><span class="el">Δημιουργία και διαγραφή λογαριασμών</span><span class="en">Create and delete accounts</span></td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p class="muted" style="font-size:.9rem"><span class="el">Κάθε μέλος ελέγχει ποια από τα στοιχεία του εμφανίζονται στον κατάλογο. Η προεπιλογή είναι η ελάχιστη δυνατή έκθεση.</span><span class="en">Each member controls which of their details appear in the directory. The default is minimum exposure.</span></p>
+
+<h3><span class="el">Τεχνικά μέτρα</span><span class="en">Technical measures</span></h3>
+<ul>
+  <li><span class="el">Κρυπτογράφηση δεδομένων κατά τη μεταφορά και κατά την αποθήκευση</span><span class="en">Encryption of data in transit and at rest</span></li>
+  <li><span class="el">Πολυπαραγοντική ταυτοποίηση υποχρεωτικά για λογαριασμούς διαχείρισης</span><span class="en">Mandatory multi-factor authentication for administrative accounts</span></li>
+  <li><span class="el">Καταγραφή ενεργειών διαχείρισης με δυνατότητα ελέγχου</span><span class="en">Auditable logging of administrative actions</span></li>
+  <li><span class="el">Αυτόματα αντίγραφα ασφαλείας με δοκιμασμένη διαδικασία επαναφοράς</span><span class="en">Automated backups with a tested restore procedure</span></li>
+  <li><span class="el">Κανένα αρχείο με προσωπικά δεδομένα προσβάσιμο χωρίς σύνδεση</span><span class="en">No file containing personal data accessible without login</span></li>
+</ul>
+
+<h3><span class="el">Οργανωτικά μέτρα που απαιτούνται από τη Λέσχη</span><span class="en">Organisational measures required from the Club</span></h3>
+<ul>
+  <li><span class="el">Πολιτική απορρήτου και όροι χρήσης, δημοσιευμένα</span><span class="en">Published privacy policy and terms of use</span></li>
+  <li><span class="el">Τεκμηριωμένη συγκατάθεση μελών για την εμφάνισή τους στον κατάλογο</span><span class="en">Documented member consent for inclusion in the directory</span></li>
+  <li><span class="el">Πολιτική διατήρησης και διαγραφής δεδομένων</span><span class="en">Data retention and deletion policy</span></li>
+  <li><span class="el">Ορισμός προσώπου υπεύθυνου για αιτήματα υποκειμένων δεδομένων</span><span class="en">Designation of a person responsible for data subject requests</span></li>
+  <li><span class="el">Έγγραφη σύμβαση επεξεργασίας με την τεχνική ομάδα</span><span class="en">Written processing agreement with the technical team</span></li>
+</ul>
+
+<div class="callout note">
+  <p><span class="el">Η ανάγκη αυτών των μέτρων δεν προκύπτει από την επιλογή τεχνολογίας. Θα ίσχυε εξίσου με οποιαδήποτε λύση. Η διαφορά είναι ότι η προτεινόμενη αρχιτεκτονική τα καθιστά υλοποιήσιμα και ελέγξιμα.</span><span class="en">The need for these measures does not arise from the choice of technology. It would apply equally to any solution. The difference is that the proposed architecture makes them implementable and auditable.</span></p>
+</div>
+
+<!-- ── 12 ── -->
+<h2 id="s12"><span class="num"><span class="el">Ενότητα 12</span><span class="en">Section 12</span></span><span class="el">Η εναλλακτική λύση, εξεταζόμενη τίμια</span><span class="en">The alternative, honestly assessed</span></h2>
+<div class="waterline"></div>
+
+<p><span class="el">Η υφιστάμενη ιστοσελίδα βασίζεται σε σύστημα διαχείρισης περιεχομένου ευρείας χρήσης. Η εξέλιξη επί της ίδιας βάσης, με προσθήκη ενοτήτων μελών, αποτελεί υπαρκτή και θεμιτή επιλογή. Παρατίθεται με τα πραγματικά της πλεονεκτήματα.</span><span class="en">The existing website is built on a widely used content management system. Evolving on the same base, with member modules added, is a real and legitimate option. It is presented here with its genuine advantages.</span></p>
+
+<div class="tbl-scroll">
+<table>
+  <thead><tr><th style="width:26%"></th><th style="width:37%"><span class="el">Εξέλιξη υφιστάμενου</span><span class="en">Evolve the existing system</span></th><th><span class="el">Νέα πλατφόρμα</span><span class="en">New platform</span></th></tr></thead>
+  <tbody>
+    <tr><td class="tech"><span class="el">Αρχικό κόστος</span><span class="en">Initial cost</span></td><td><span class="el">Χαμηλότερο</span><span class="en">Lower</span></td><td><span class="el">Υψηλότερο</span><span class="en">Higher</span></td></tr>
+    <tr><td class="tech"><span class="el">Χρόνος υλοποίησης</span><span class="en">Time to deliver</span></td><td><span class="el">Συντομότερος</span><span class="en">Shorter</span></td><td><span class="el">Μεγαλύτερος</span><span class="en">Longer</span></td></tr>
+    <tr><td class="tech"><span class="el">Εύρεση συντηρητή</span><span class="en">Finding a maintainer</span></td><td><span class="el">Ευκολότερη — πολλοί διαθέσιμοι</span><span class="en">Easier — many available</span></td><td><span class="el">Δυσκολότερη — εξειδικευμένη γνώση</span><span class="en">Harder — specialised knowledge</span></td></tr>
+    <tr><td class="tech"><span class="el">Εξάρτηση από πρόσθετα τρίτων</span><span class="en">Dependence on third-party plugins</span></td><td><span class="el">Υψηλή — πέντε έως οκτώ πρόσθετα</span><span class="en">High — five to eight plugins</span></td><td><span class="el">Ελάχιστη</span><span class="en">Minimal</span></td></tr>
+    <tr><td class="tech"><span class="el">Έλεγχος επί των δεδομένων</span><span class="en">Control over data</span></td><td><span class="el">Μερικός</span><span class="en">Partial</span></td><td><span class="el">Πλήρης, με δυνατότητα εξαγωγής</span><span class="en">Full, with export capability</span></td></tr>
+    <tr><td class="tech"><span class="el">Επιφάνεια ασφαλείας</span><span class="en">Security surface</span></td><td><span class="el">Ευρύτερη</span><span class="en">Broader</span></td><td><span class="el">Περιορισμένη</span><span class="en">Contained</span></td></tr>
+    <tr><td class="tech"><span class="el">Ορίζοντας ζωής</span><span class="en">Expected lifespan</span></td><td><span class="el">Τρία έως πέντε έτη</span><span class="en">Three to five years</span></td><td><span class="el">Οκτώ έως δέκα έτη</span><span class="en">Eight to ten years</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<p><span class="el"><strong>Σύσταση.</strong> Προκρίνεται η νέα πλατφόρμα, με ρητή προϋπόθεση: <strong>μόνον εφόσον εξασφαλιστεί ετήσιος προϋπολογισμός φιλοξενίας και συντήρησης</strong>. Χωρίς τη δέσμευση αυτή, η εξέλιξη του υφιστάμενου συστήματος είναι η ειλικρινέστερη επιλογή, διότι ένα εγκαταλελειμμένο σύγχρονο σύστημα είναι χειρότερο από ένα συντηρούμενο απλό.</span><span class="en"><strong>Recommendation.</strong> The new platform is preferred, subject to one explicit condition: <strong>only if an annual hosting and maintenance budget is secured</strong>. Without that commitment, evolving the existing system is the more honest choice, because an abandoned modern system is worse than a maintained simple one.</span></p>
+
+<!-- ── 13 ── -->
+<h2 id="s13"><span class="num"><span class="el">Ενότητα 13</span><span class="en">Section 13</span></span><span class="el">Φάσεις και σημεία ελέγχου</span><span class="en">Phases and control points</span></h2>
+<div class="waterline"></div>
+
+<p><span class="el">Κάθε φάση ολοκληρώνεται με γραπτή επιβεβαίωση. Η επόμενη δεν εκκινεί χωρίς αυτήν. Η διαδικασία διεξάγεται εξ ολοκλήρου γραπτώς, μέσω ενιαίου σημείου επικοινωνίας.</span><span class="en">Each phase closes with a written confirmation. The next does not begin without it. The process is conducted entirely in writing, through a single point of contact.</span></p>
+
+<div class="tbl-scroll">
+<table>
+  <thead><tr><th style="width:7%"></th><th style="width:25%"><span class="el">Φάση</span><span class="en">Phase</span></th><th><span class="el">Παραδοτέο και σημείο ελέγχου</span><span class="en">Deliverable and control point</span></th></tr></thead>
+  <tbody>
+    <tr><td>0</td><td class="tech"><span class="el">Άμεσες ενέργειες</span><span class="en">Immediate actions</span></td><td><span class="el">Αντιμετώπιση των ευρημάτων F-01 και F-02. Ανεξάρτητη από το υπόλοιπο έργο.</span><span class="en">Remediation of findings F-01 and F-02. Independent of the rest of the project.</span></td></tr>
+    <tr><td>1</td><td class="tech"><span class="el">Πρότυπο</span><span class="en">Prototype</span></td><td><span class="el">Πλοηγήσιμο πρότυπο με πραγματική δομή και εικονικά δεδομένα. <strong>Έγκριση εύρους.</strong></span><span class="en">Navigable prototype with real structure and sample data. <strong>Scope approval.</strong></span></td></tr>
+    <tr><td>2</td><td class="tech"><span class="el">Ταυτότητα</span><span class="en">Identity</span></td><td><span class="el">Χρωματική παλέτα, τυπογραφία, εφαρμογή στο πρότυπο. <strong>Έγκριση σχεδιασμού.</strong></span><span class="en">Palette, typography, applied to the prototype. <strong>Design approval.</strong></span></td></tr>
+    <tr><td>3</td><td class="tech"><span class="el">Επικύρωση</span><span class="en">Validation</span></td><td><span class="el">Παρουσίαση σε δείγμα μελών και εταιρειών-μελών. <strong>Οριστικοποίηση προδιαγραφών.</strong></span><span class="en">Review with a sample of members and corporate members. <strong>Specification freeze.</strong></span></td></tr>
+    <tr><td>4</td><td class="tech"><span class="el">Ανάπτυξη</span><span class="en">Build</span></td><td><span class="el">Υλοποίηση, μετάπτωση δεδομένων, δοκιμές αποδοχής. <strong>Έγκριση παραλαβής.</strong></span><span class="en">Implementation, data migration, acceptance testing. <strong>Acceptance approval.</strong></span></td></tr>
+    <tr><td>5</td><td class="tech"><span class="el">Λειτουργία</span><span class="en">Go-live</span></td><td><span class="el">Θέση σε παραγωγή, εκπαίδευση, τεκμηρίωση, παράδοση πρόσβασης.</span><span class="en">Production launch, training, documentation, handover of access.</span></td></tr>
+    <tr><td>6</td><td class="tech"><span class="el">Υποστήριξη παραγωγής</span><span class="en">Production support</span></td><td><span class="el">Δύο εβδομάδες υποστήριξης μετά τη θέση σε λειτουργία. <strong>Οριστική παραλαβή.</strong></span><span class="en">Two weeks of support following go-live. <strong>Final acceptance.</strong></span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3><span class="el">Δοκιμές αποδοχής από τον χρήστη (UAT)</span><span class="en">User acceptance testing (UAT)</span></h3>
+<p><span class="el">Πριν τη θέση σε παραγωγή, η πλατφόρμα διατίθεται σε δοκιμαστικό περιβάλλον για έλεγχο από πρόσωπα που ορίζει η Λέσχη. Η διαδικασία είναι δομημένη και χρονικά οριοθετημένη, ώστε να μην καθυστερεί το έργο.</span><span class="en">Before production launch, the platform is made available in a test environment for review by persons designated by the Club. The process is structured and time-boxed so as not to delay the project.</span></p>
+<ul>
+  <li><span class="el">Παραδίδεται κατάλογος σεναρίων ελέγχου, ένα ανά λειτουργία της Ενότητας 6</span><span class="en">A test scenario list is provided, one per function listed in Section 6</span></li>
+  <li><span class="el">Τα ευρήματα καταγράφονται εγγράφως και ταξινομούνται σε <em>ελάττωμα</em> ή <em>νέο αίτημα</em></span><span class="en">Findings are recorded in writing and classified as <em>defect</em> or <em>new request</em></span></li>
+  <li><span class="el">Τα ελαττώματα διορθώνονται εντός της φάσης· τα νέα αιτήματα καταγράφονται για δεύτερη φάση</span><span class="en">Defects are corrected within the phase; new requests are logged for a second phase</span></li>
+  <li><span class="el">Η φάση κλείνει με γραπτή έγκριση παραλαβής από το ενιαίο σημείο επικοινωνίας</span><span class="en">The phase closes with written acceptance sign-off from the single point of contact</span></li>
+</ul>
+
+<h3><span class="el">Περίοδος υποστήριξης παραγωγής</span><span class="en">Production support period</span></h3>
+<p><span class="el">Για δύο εβδομάδες μετά τη θέση σε λειτουργία παρέχεται υποστήριξη χωρίς πρόσθετη χρέωση. Περιλαμβάνει διόρθωση ελαττωμάτων, παρακολούθηση σταθερότητας, μικρορυθμίσεις και υποστήριξη των διαχειριστών κατά τις πρώτες πραγματικές χρήσεις. Δεν περιλαμβάνει νέες λειτουργίες. Με τη λήξη της περιόδου, το έργο θεωρείται οριστικά παραληφθέν και η συντήρηση συνεχίζεται βάσει της Ενότητας 14.</span><span class="en">For two weeks following go-live, support is provided at no additional charge. It covers defect correction, stability monitoring, minor adjustments and support for administrators during first real use. It does not cover new functionality. On expiry of the period the project is deemed finally accepted and maintenance continues under Section 14.</span></p>
+
+<h3><span class="el">Αντιστοίχιση με τα συμβατικά ορόσημα</span><span class="en">Mapping to contractual milestones</span></h3>
+<div class="tbl-scroll">
+<table>
+  <thead><tr><th style="width:42%"><span class="el">Συμβατικό ορόσημο</span><span class="en">Contractual milestone</span></th><th><span class="el">Φάση του παρόντος</span><span class="en">Phase in this document</span></th></tr></thead>
+  <tbody>
+    <tr><td class="tech"><span class="el">Ανάληψη έργου / scoping</span><span class="en">Project award / scoping</span></td><td><span class="el">Φάσεις 1–3 (πρότυπο, ταυτότητα, επικύρωση)</span><span class="en">Phases 1–3 (prototype, identity, validation)</span></td></tr>
+    <tr><td class="tech"><span class="el">Development / QA delivery</span><span class="en">Development / QA delivery</span></td><td><span class="el">Φάση 4</span><span class="en">Phase 4</span></td></tr>
+    <tr><td class="tech"><span class="el">UAT sign-off</span><span class="en">UAT sign-off</span></td><td><span class="el">Φάση 4, σημείο ελέγχου παραλαβής</span><span class="en">Phase 4, acceptance control point</span></td></tr>
+    <tr><td class="tech"><span class="el">PROD release</span><span class="en">PROD release</span></td><td><span class="el">Φάση 5</span><span class="en">Phase 5</span></td></tr>
+    <tr><td class="tech"><span class="el">PROD support / maintenance (2 εβδομάδες)</span><span class="en">PROD support / maintenance (2 weeks)</span></td><td><span class="el">Φάση 6</span><span class="en">Phase 6</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="callout note">
+  <p><span class="el"><strong>Χρονοδιάγραμμα.</strong> Δεν προτείνονται δεσμευτικές ημερομηνίες πριν την ολοκλήρωση της Φάσης 1. Κάθε εκτίμηση πριν από την οριστικοποίηση του εύρους θα ήταν παραπλανητική.</span><span class="en"><strong>Timeline.</strong> No binding dates are proposed before Phase 1 is complete. Any estimate made before scope is fixed would be misleading.</span></p>
+</div>
+
+<!-- ── 14 ── -->
+<h2 id="s14"><span class="num"><span class="el">Ενότητα 14</span><span class="en">Section 14</span></span><span class="el">Οικονομική δομή</span><span class="en">Financial structure</span></h2>
+<div class="waterline"></div>
+
+<div class="tbl-scroll">
+<table>
+  <thead><tr><th style="width:46%"><span class="el">Κατηγορία</span><span class="en">Category</span></th><th style="width:24%"><span class="el">Φορέας</span><span class="en">Borne by</span></th><th><span class="el">Ποσό</span><span class="en">Amount</span></th></tr></thead>
+  <tbody>
+    <tr><td><span class="el">Σχεδιασμός, ανάπτυξη, μετάπτωση δεδομένων</span><span class="en">Design, development, data migration</span></td><td><span class="el">Χορηγός</span><span class="en">Sponsor</span></td><td><span class="el">Άνευ χρέωσης προς τη Λέσχη</span><span class="en">No charge to the Club</span></td></tr>
+    <tr><td><span class="el">Υποστήριξη παραγωγής, 2 εβδομάδες</span><span class="en">Production support, 2 weeks</span></td><td><span class="el">Χορηγός</span><span class="en">Sponsor</span></td><td><span class="el">Άνευ χρέωσης προς τη Λέσχη</span><span class="en">No charge to the Club</span></td></tr>
+    <tr><td><span class="el">Φιλοξενία και υποδομή, ετησίως</span><span class="en">Hosting and infrastructure, annual</span></td><td><span class="el">Λέσχη</span><span class="en">Club</span></td><td>[<span class="el">προς οριστικοποίηση</span><span class="en">to be finalised</span>]</td></tr>
+    <tr><td><span class="el">Διαδικτυακά ονόματα και πιστοποιητικά, ετησίως</span><span class="en">Domain names and certificates, annual</span></td><td><span class="el">Λέσχη</span><span class="en">Club</span></td><td>[<span class="el">προς οριστικοποίηση</span><span class="en">to be finalised</span>]</td></tr>
+    <tr><td><span class="el">Υπηρεσία ταυτοποίησης, ετησίως</span><span class="en">Identity service, annual</span></td><td><span class="el">Λέσχη</span><span class="en">Club</span></td><td>[<span class="el">προς οριστικοποίηση</span><span class="en">to be finalised</span>]</td></tr>
+    <tr><td><span class="el">Συντήρηση και ενημερώσεις ασφαλείας, ετησίως</span><span class="en">Maintenance and security updates, annual</span></td><td><span class="el">Λέσχη</span><span class="en">Club</span></td><td>[<span class="el">προς οριστικοποίηση</span><span class="en">to be finalised</span>]</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="callout">
+  <p><span class="el"><strong>Γιατί η συντήρηση αποτιμάται ακόμη κι αν προσφέρεται.</strong> Η γραμμή αυτή αποτυπώνεται με αξία ώστε το Διοικητικό Συμβούλιο να γνωρίζει το πραγματικό κόστος λειτουργίας. Αν σε μελλοντικό χρόνο η υποστήριξη ανατεθεί σε τρίτον, το μέγεθος είναι ήδη γνωστό και προϋπολογισμένο.</span><span class="en"><strong>Why maintenance is priced even if offered.</strong> This line is stated with a value so that the Board knows the true cost of operation. If support is at some future point transferred to a third party, the figure is already known and budgeted.</span></p>
+</div>
+
+<!-- ── 15 ── -->
+<h2 id="s15"><span class="num"><span class="el">Ενότητα 15</span><span class="en">Section 15</span></span><span class="el">Κυριότητα και συνέχεια</span><span class="en">Ownership and continuity</span></h2>
+<div class="waterline"></div>
+
+<p><span class="el">Το κρίσιμο ερώτημα για κάθε σωματείο δεν είναι τι παραδίδεται, αλλά τι απομένει σε αυτό αν η τεχνική ομάδα πάψει να είναι διαθέσιμη. Προτείνονται τα ακόλουθα ως δεσμευτικά στοιχεία παράδοσης.</span><span class="en">The critical question for any association is not what is delivered, but what remains with it should the technical team cease to be available. The following are proposed as binding handover items.</span></p>
+
+<ul>
+  <li><span class="el">Τα διαδικτυακά ονόματα καταχωρούνται στο όνομα της Λέσχης</span><span class="en">Domain names registered in the Club's name</span></li>
+  <li><span class="el">Ο λογαριασμός υποδομής ανήκει στη Λέσχη, με πρόσβαση της τεχνικής ομάδας κατ' ανάθεση</span><span class="en">The infrastructure account belongs to the Club, with delegated technical access</span></li>
+  <li><span class="el">Ο πηγαίος κώδικας παραδίδεται στη Λέσχη χωρίς περιορισμό χρήσης</span><span class="en">Source code delivered to the Club without usage restriction</span></li>
+  <li><span class="el">Δυνατότητα πλήρους εξαγωγής δεδομένων σε ανοικτή μορφή, ανά πάσα στιγμή</span><span class="en">Full data export in an open format, at any time</span></li>
+  <li><span class="el">Γραπτή τεκμηρίωση διαχείρισης, στα ελληνικά</span><span class="en">Written administration documentation, in Greek</span></li>
+  <li><span class="el">Εκπαίδευση τουλάχιστον δύο προσώπων ορισμένων από το Διοικητικό Συμβούλιο</span><span class="en">Training of at least two persons designated by the Board</span></li>
+</ul>
+
+<!-- ── 16 ── -->
+<h2 id="s16"><span class="num"><span class="el">Ενότητα 16</span><span class="en">Section 16</span></span><span class="el">Δομή συνεργασίας και πνευματικά δικαιώματα</span><span class="en">Engagement structure and intellectual property</span></h2>
+<div class="waterline"></div>
+
+<p><span class="el">Το έργο υλοποιείται με τη συμμετοχή τριών μερών. Η διάκριση των ρόλων τους έχει πρακτική σημασία και αποτυπώνεται ρητά, ώστε να μην υπάρξει αμφισβήτηση ως προς το ποιος αναθέτει, ποιος πληρώνει και σε ποιον ανήκει το αποτέλεσμα.</span><span class="en">The project is delivered with the participation of three parties. The distinction between their roles has practical consequences and is stated explicitly, so that there can be no doubt as to who commissions, who pays, and to whom the result belongs.</span></p>
+
+<div class="tbl-scroll">
+<table>
+  <thead><tr><th style="width:24%"><span class="el">Μέρος</span><span class="en">Party</span></th><th style="width:30%"><span class="el">Ρόλος</span><span class="en">Role</span></th><th><span class="el">Τι αναλαμβάνει</span><span class="en">Responsibilities</span></th></tr></thead>
+  <tbody>
+    <tr><td class="tech"><span class="el">Ναυτιλιακή Λέσχη Χίων</span><span class="en">Chios Marine Club</span></td><td><span class="el">Δικαιούχος και κύριος του αποτελέσματος</span><span class="en">Beneficiary and owner of the result</span></td><td><span class="el">Ορίζει απαιτήσεις, εγκρίνει φάσεις, αποκτά την κυριότητα, αναλαμβάνει τη φιλοξενία και τα τρέχοντα λειτουργικά</span><span class="en">Defines requirements, approves phases, acquires ownership, assumes hosting and recurring operating costs</span></td></tr>
+    <tr><td class="tech"><span class="el">Χορηγός</span><span class="en">Sponsor</span></td><td><span class="el">Ανάδοχος κόστους και διαχείρισης υλοποίησης</span><span class="en">Bears cost and manages delivery</span></td><td><span class="el">Συμβάλλεται με τον υλοποιητή, καλύπτει το κόστος ανάπτυξης, παρακολουθεί την πρόοδο</span><span class="en">Contracts with the implementer, funds development, oversees progress</span></td></tr>
+    <tr><td class="tech"><span class="el">Υλοποιητής</span><span class="en">Implementer</span></td><td><span class="el">Τεχνική εκτέλεση</span><span class="en">Technical execution</span></td><td><span class="el">Σχεδιασμός, ανάπτυξη, μετάπτωση, τεκμηρίωση, εκπαίδευση, υποστήριξη 2 εβδομάδων</span><span class="en">Design, development, migration, documentation, training, 2-week support</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3><span class="el">Πνευματική ιδιοκτησία</span><span class="en">Intellectual property</span></h3>
+<ul>
+  <li><span class="el">Ο πηγαίος κώδικας που αναπτύσσεται ειδικά για το έργο, καθώς και τα δικαιώματα επί της ιστοσελίδας, ανήκουν στη <strong>Ναυτιλιακή Λέσχη Χίων</strong>.</span><span class="en">Source code developed specifically for the project, together with the rights in the website, belong to the <strong>Chios Marine Club</strong>.</span></li>
+  <li><span class="el">Το περιεχόμενο, τα σήματα, οι φωτογραφίες και τα δεδομένα μελών παραμένουν ανέκαθεν και αποκλειστικά στη Λέσχη.</span><span class="en">Content, trademarks, photographs and member data remain at all times exclusively with the Club.</span></li>
+  <li><span class="el">Λογισμικό ανοικτού κώδικα και βιβλιοθήκες τρίτων διέπονται από τις οικείες άδειές τους· παραδίδεται σχετικός κατάλογος.</span><span class="en">Open-source software and third-party libraries are governed by their own licences; an inventory is provided.</span></li>
+  <li><span class="el">Ο υλοποιητής διατηρεί το δικαίωμα επαναχρησιμοποίησης γενικής χρήσης τεχνικών συνιστωσών που δεν ενσωματώνουν περιεχόμενο, δεδομένα ή σήματα της Λέσχης.</span><span class="en">The implementer retains the right to reuse general-purpose technical components that embed no Club content, data or marks.</span></li>
+</ul>
+
+<h3><span class="el">Όριο ευθύνης ως προς τη φιλοξενία</span><span class="en">The hosting boundary</span></h3>
+<p><span class="el">Η φιλοξενία δεν περιλαμβάνεται στο αντικείμενο του υλοποιητή. Για να είναι λειτουργικό το όριο αυτό, προτείνεται: η συνδρομή υποδομής να ανοιχθεί <strong>στο όνομα της Λέσχης</strong>, ο υλοποιητής να λάβει πρόσβαση κατ' ανάθεση για την εγκατάσταση και την περίοδο υποστήριξης, και να παραδοθεί γραπτή τεκμηρίωση λειτουργίας. Έτσι η Λέσχη διατηρεί τον έλεγχο και το κόστος από την πρώτη ημέρα, χωρίς να επιβαρύνεται με τεχνική διαχείριση κατά την υλοποίηση.</span><span class="en">Hosting is outside the implementer's scope. For that boundary to work in practice we propose: the infrastructure subscription is opened <strong>in the Club's name</strong>, the implementer receives delegated access for provisioning and for the support period, and written operating documentation is handed over. The Club thus retains control and cost from day one, without carrying technical administration during delivery.</span></p>
+
+<h3><span class="el">Επεξεργασία προσωπικών δεδομένων</span><span class="en">Processing of personal data</span></h3>
+<p><span class="el">Επειδή τα μέρη είναι τρία, η σχέση ως προς τα δεδομένα χρειάζεται ρητή αποτύπωση: <strong>υπεύθυνη επεξεργασίας</strong> είναι η Λέσχη, <strong>εκτελών την επεξεργασία</strong> ο υλοποιητής, ενώ ο χορηγός δεν αποκτά πρόσβαση σε δεδομένα μελών. Απαιτείται συνεπώς γραπτή σύμβαση επεξεργασίας μεταξύ Λέσχης και υλοποιητή, ανεξάρτητη από τη σύμβαση έργου μεταξύ χορηγού και υλοποιητή.</span><span class="en">Because three parties are involved, the data relationship must be stated explicitly: the Club is <strong>controller</strong>, the implementer is <strong>processor</strong>, and the sponsor obtains no access to member data. A written processing agreement between the Club and the implementer is therefore required, separate from the delivery contract between sponsor and implementer.</span></p>
+
+<div class="callout note">
+  <p><span class="el">Η σύμβαση έργου συνάπτεται μεταξύ χορηγού και υλοποιητή. Επειδή όμως το αποτέλεσμα και τα δεδομένα αφορούν τη Λέσχη, συνιστάται <strong>γραπτή συναίνεση του Διοικητικού Συμβουλίου</strong> για την πρόσβαση του υλοποιητή στα υφιστάμενα συστήματα και δεδομένα. Η συναίνεση αυτή αποτελεί το αίτημα απόφασης 7.</span><span class="en">The delivery contract is concluded between sponsor and implementer. Since the result and the data concern the Club, <strong>written consent of the Board</strong> is recommended for the implementer's access to existing systems and data. That consent is decision request 7.</span></p>
+</div>
+
+<!-- ── 17 ── -->
+<h2 id="s17"><span class="num"><span class="el">Ενότητα 17</span><span class="en">Section 17</span></span><span class="el">Ρίσκα και παραδοχές</span><span class="en">Risks and assumptions</span></h2>
+<div class="waterline"></div>
+
+<div class="tbl-scroll">
+<table>
+  <thead><tr><th style="width:42%"><span class="el">Ρίσκο</span><span class="en">Risk</span></th><th><span class="el">Αντιμετώπιση</span><span class="en">Mitigation</span></th></tr></thead>
+  <tbody>
+    <tr><td><span class="el">Διεύρυνση εύρους κατά την ανάπτυξη</span><span class="en">Scope expansion during development</span></td><td><span class="el">Γραπτή έγκριση ανά φάση· κάθε νέο αίτημα καταγράφεται για δεύτερη φάση</span><span class="en">Written approval per phase; new requests logged for a second phase</span></td></tr>
+    <tr><td><span class="el">Μη εξασφάλιση ετήσιου προϋπολογισμού λειτουργίας</span><span class="en">Annual operating budget not secured</span></td><td><span class="el">Αποτελεί προϋπόθεση εκκίνησης της Φάσης 4</span><span class="en">A precondition for starting Phase 4</span></td></tr>
+    <tr><td><span class="el">Χαμηλή υιοθέτηση από τα μέλη</span><span class="en">Low member adoption</span></td><td><span class="el">Επικύρωση σε δείγμα μελών πριν την ανάπτυξη· απλή διαδικασία πρώτης σύνδεσης</span><span class="en">Validation with a member sample before build; simple first-login process</span></td></tr>
+    <tr><td><span class="el">Ελλιπή ή ανακριβή υφιστάμενα δεδομένα μελών</span><span class="en">Incomplete or inaccurate existing member data</span></td><td><span class="el">Καθαρισμός κατά τη μετάπτωση με επιβεβαίωση από τη Γραμματεία</span><span class="en">Cleansing during migration with confirmation by the Secretariat</span></td></tr>
+    <tr><td><span class="el">Μη ανακτήσιμο διαδικτυακό όνομα</span><span class="en">Domain name not recoverable</span></td><td><span class="el">Εναλλακτική στρατηγική ονομάτων και δημόσια ενημέρωση μελών</span><span class="en">Alternative naming strategy and public notification of members</span></td></tr>
+    <tr><td><span class="el">Εξάρτηση από περιορισμένο αριθμό προσώπων</span><span class="en">Dependence on a small number of individuals</span></td><td><span class="el">Τεκμηρίωση, εκπαίδευση, κυριότητα λογαριασμών στη Λέσχη</span><span class="en">Documentation, training, account ownership held by the Club</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h4><span class="el">Παραδοχές</span><span class="en">Assumptions</span></h4>
+<ul>
+  <li><span class="el">Η Λέσχη διαθέτει ή μπορεί να αποκτήσει έλεγχο των διαδικτυακών της ονομάτων</span><span class="en">The Club holds or can obtain control of its domain names</span></li>
+  <li><span class="el">Υφίσταται πρόσβαση στο υπάρχον σύστημα για εξαγωγή δεδομένων και αρχείου</span><span class="en">Access to the existing system exists for data and archive extraction</span></li>
+  <li><span class="el">Ορίζεται ενιαίο σημείο επικοινωνίας για όλη τη διάρκεια του έργου</span><span class="en">A single point of contact is designated for the duration of the project</span></li>
+  <li><span class="el">Το Διοικητικό Συμβούλιο εγκρίνει τη θέσπιση πολιτικής απορρήτου και όρων χρήσης</span><span class="en">The Board approves the adoption of a privacy policy and terms of use</span></li>
+</ul>
+
+<!-- ── 17 ── -->
+<h2 id="s18"><span class="num"><span class="el">Ενότητα 18</span><span class="en">Section 18</span></span><span class="el">Αιτήματα απόφασης</span><span class="en">Decision requests</span></h2>
+<div class="waterline"></div>
+
+<p><span class="el">Παρακαλούμε για γραπτή απάντηση στα ακόλουθα. Εφόσον δεν υπάρξει αντίρρηση έως την οριζόμενη ημερομηνία, θα θεωρηθεί ότι εγκρίνεται η προτεινόμενη επιλογή και θα προχωρήσουμε αναλόγως.</span><span class="en">We request a written response to the following. If no objection is received by the stated date, the recommended option will be taken as approved and we will proceed accordingly.</span></p>
+
+<div class="decision"><div class="dnum">1</div><div>
+  <h3><span class="el">Άμεσες ενέργειες Φάσης 0</span><span class="en">Phase 0 immediate actions</span></h3>
+  <p><span class="el">Έγκριση εκκίνησης των ενεργειών της Ενότητας 4, ανεξάρτητα από την πορεία του υπόλοιπου έργου.</span><span class="en">Approval to begin the actions in Section 4, independently of the rest of the project.</span></p>
+  <p class="rec"><span class="el">Προτεινόμενη επιλογή: Έγκριση, με άμεση εκκίνηση.</span><span class="en">Recommended: Approve, beginning immediately.</span></p>
+</div></div>
+
+<div class="decision"><div class="dnum">2</div><div>
+  <h3><span class="el">Τεχνολογική κατεύθυνση</span><span class="en">Technology direction</span></h3>
+  <p><span class="el">Επιλογή μεταξύ νέας πλατφόρμας (Ενότητες 8 και 10) και εξέλιξης του υφιστάμενου συστήματος (Ενότητα 12).</span><span class="en">Choice between the new platform (Sections 8 and 10) and evolving the existing system (Section 12).</span></p>
+  <p class="rec"><span class="el">Προτεινόμενη επιλογή: Νέα πλατφόρμα, υπό την προϋπόθεση της απόφασης 3.</span><span class="en">Recommended: New platform, subject to decision 3.</span></p>
+</div></div>
+
+<div class="decision"><div class="dnum">3</div><div>
+  <h3><span class="el">Ετήσιος προϋπολογισμός λειτουργίας</span><span class="en">Annual operating budget</span></h3>
+  <p><span class="el">Δέσμευση της Λέσχης για ετήσια κάλυψη φιλοξενίας, ονομάτων και συντήρησης, ως διακριτή γραμμή προϋπολογισμού.</span><span class="en">Commitment by the Club to cover hosting, domains and maintenance annually, as a distinct budget line.</span></p>
+  <p class="rec"><span class="el">Προτεινόμενη επιλογή: Έγκριση κατ' αρχήν, με οριστικοποίηση ποσού πριν τη Φάση 4.</span><span class="en">Recommended: Approve in principle, with the amount finalised before Phase 4.</span></p>
+</div></div>
+
+<div class="decision"><div class="dnum">4</div><div>
+  <h3><span class="el">Εύρος πρώτης έκδοσης</span><span class="en">First release scope</span></h3>
+  <p><span class="el">Αποδοχή του διαχωρισμού της Ενότητας 6 και των εξαιρέσεων της Ενότητας 7.</span><span class="en">Acceptance of the split in Section 6 and the exclusions in Section 7.</span></p>
+  <p class="rec"><span class="el">Προτεινόμενη επιλογή: Αποδοχή ως έχει.</span><span class="en">Recommended: Accept as proposed.</span></p>
+</div></div>
+
+<div class="decision"><div class="dnum">5</div><div>
+  <h3><span class="el">Ενιαίο σημείο επικοινωνίας</span><span class="en">Single point of contact</span></h3>
+  <p><span class="el">Ορισμός ενός προσώπου που συγκεντρώνει τις θέσεις του Διοικητικού Συμβουλίου και απαντά για λογαριασμό του.</span><span class="en">Designation of one person who consolidates the Board's positions and responds on its behalf.</span></p>
+  <p class="rec"><span class="el">Προτεινόμενη επιλογή: Ορισμός από το Διοικητικό Συμβούλιο.</span><span class="en">Recommended: To be designated by the Board.</span></p>
+</div></div>
+
+<div class="decision"><div class="dnum">6</div><div>
+  <h3><span class="el">Πρόσβαση σε δεδομένα μελών</span><span class="en">Access to member data</span></h3>
+  <p><span class="el">Έγκριση της μεταφοράς του καταλόγου μελών, των στοιχείων του Διοικητικού Συμβουλίου και των βιογραφικών πίσω από ελεγχόμενη πρόσβαση, σύμφωνα με τον πίνακα της Ενότητας 11.</span><span class="en">Approval to move the member directory, Board contact details and CVs behind controlled access, per the table in Section 11.</span></p>
+  <p class="rec"><span class="el">Προτεινόμενη επιλογή: Έγκριση.</span><span class="en">Recommended: Approve.</span></p>
+</div></div>
+
+<div class="decision"><div class="dnum">7</div><div>
+  <h3><span class="el">Συμβατικό πλαίσιο και πνευματικά δικαιώματα</span><span class="en">Contractual framework and intellectual property</span></h3>
+  <p><span class="el">Αποδοχή της δομής τριών μερών της Ενότητας 16: κυριότητα κώδικα και δικαιωμάτων στη Λέσχη, φιλοξενία στο όνομα της Λέσχης, γραπτή συναίνεση για πρόσβαση του υλοποιητή, χωριστή σύμβαση επεξεργασίας δεδομένων.</span><span class="en">Acceptance of the three-party structure in Section 16: ownership of code and rights vests in the Club, hosting in the Club's name, written consent for implementer access, and a separate data processing agreement.</span></p>
+  <p class="rec"><span class="el">Προτεινόμενη επιλογή: Αποδοχή ως έχει.</span><span class="en">Recommended: Accept as proposed.</span></p>
+</div></div>
+
+<div class="callout note">
+  <p><span class="el"><strong>Προθεσμία απάντησης:</strong> [προς συμπλήρωση]. Παραμένουμε στη διάθεσή σας για διευκρινίσεις, γραπτώς.</span><span class="en"><strong>Response deadline:</strong> [to be completed]. We remain available for clarifications, in writing.</span></p>
+</div>
+
+<h4 style="margin-top:3rem"><span class="el">Ιστορικό εκδόσεων</span><span class="en">Version history</span></h4>
+<div class="tbl-scroll">
+<table>
+  <thead><tr><th style="width:14%"><span class="el">Έκδοση</span><span class="en">Version</span></th><th style="width:24%"><span class="el">Ημερομηνία</span><span class="en">Date</span></th><th><span class="el">Μεταβολές</span><span class="en">Changes</span></th></tr></thead>
+  <tbody>
+    <tr><td>1.0</td><td>[—]</td><td><span class="el">Αρχική σύνταξη</span><span class="en">Initial draft</span></td></tr>
+    <tr><td>1.1</td><td>[—]</td><td><span class="el">Προσθήκη ενοτήτων εξαιρέσεων, μετάπτωσης και πίνακα δικαιωμάτων πρόσβασης</span><span class="en">Added exclusions, migration and access rights sections</span></td></tr>
+    <tr><td>1.2</td><td>[—]</td><td><span class="el">Ευθυγράμμιση με το συμβατικό πλαίσιο: δομή τριών μερών, πνευματικά δικαιώματα, όριο φιλοξενίας, UAT, Φάση 6 υποστήριξης</span><span class="en">Alignment with the contractual framework: three-party structure, IP, hosting boundary, UAT, Phase 6 support</span></td></tr>
+    <tr><td>1.3</td><td>[—]</td><td><span class="el">Περίοδος υποστήριξης παραγωγής: δύο εβδομάδες</span><span class="en">Production support period: two weeks</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="docfoot">
+  <span><span class="el">Ναυτιλιακή Λέσχη Χίων · Πρόταση Έργου · Έκδοση 1.3</span><span class="en">Chios Marine Club · Project Proposal · Version 1.3</span></span>
+  <span><span class="el">Εμπιστευτικό — προς χρήση του Διοικητικού Συμβουλίου</span><span class="en">Confidential — for the use of the Board of Directors</span></span>
+</div>
+
+</div><!-- /content -->
+</div><!-- /doc -->
+
+<script>
+function setLang(l){
+  document.documentElement.setAttribute('data-lang', l);
+  document.documentElement.setAttribute('lang', l);
+  document.getElementById('btn-el').setAttribute('aria-pressed', l === 'el');
+  document.getElementById('btn-en').setAttribute('aria-pressed', l === 'en');
+}
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(a){ a.classList.remove('active'); });
+        if(map[e.target.id]) map[e.target.id].classList.add('active');
+      }
+    });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  document.querySelectorAll('h2[id]').forEach(function(h){ obs.observe(h); });
+})();
+</script>
+</body>
+</html>
