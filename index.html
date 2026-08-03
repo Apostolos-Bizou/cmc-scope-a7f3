@@ -252,6 +252,18 @@ svg.arch{width:100%;max-width:1100px;height:auto;display:block;border:1px solid 
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
+.annex{border-top:3px solid var(--navy);margin-top:3.4rem;padding-top:1.6rem}
+.annexbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;background:var(--sea);padding:1rem 1.3rem;margin:1.2rem 0 1.8rem;border-left:4px solid var(--gold)}
+.annexbar p{margin:0;font-size:.95rem;max-width:60ch}
+.dlbtn{appearance:none;border:0;background:var(--navy);color:#fff;font-family:"Source Sans 3",sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.06em;padding:.7rem 1.15rem;border-radius:2px;cursor:pointer;white-space:nowrap}
+.dlbtn:hover{background:var(--navy-deep)}
+.dlbtn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+#contract h4{color:var(--navy);letter-spacing:0;text-transform:none;font-size:.97rem;margin:1.5rem 0 .45rem}
+#contract p{font-size:.94rem;margin-bottom:.6rem;max-width:88ch}
+.sigrow{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2.4rem;max-width:70ch}
+.sigrow div{border-top:1px solid var(--ink-soft);padding-top:.5rem;font-size:.9rem}
+@media print{.dlbtn{display:none!important}.annexbar{display:block}}
+
 /* ═══════ LANGUAGE SWITCH — must stay last ═══════ */
 html[data-lang="el"] .en,
 html[data-lang="el"] span.en,
@@ -273,7 +285,7 @@ html[data-lang="en"] div.el{display:none!important}
       </svg>
       <span class="bm-text">
         <span class="bm-name"><span class="el">Ναυτιλιακή Λέσχη Χίων</span><span class="en">Chios Marine Club</span></span>
-        <span class="bm-kind"><span class="el">Πρόταση Έργου · Έκδοση 1.3</span><span class="en">Project Proposal · Version 1.3</span></span>
+        <span class="bm-kind"><span class="el">Πρόταση Έργου · Έκδοση 1.7</span><span class="en">Project Proposal · Version 1.7</span></span>
       </span>
     </div>
     <div class="controls">
@@ -294,7 +306,7 @@ html[data-lang="en"] div.el{display:none!important}
     <path d="M14 10c2.6.6 4.2 2.4 4.8 4.6.5 1.9-.2 3.6-1.1 5.2-.8 1.4-1.7 2.6-3.2 3.3-1-1.6-1.4-3.3-1.2-5.1.2-1.6.7-3.1.6-4.7 0-1.1-.3-2.2.1-3.3z" fill="#F0BE5E"/>
   </svg>
   <div class="cover-inner">
-    <p class="eyebrow"><span class="el">Πρόταση Έργου · Έκδοση 1.3</span><span class="en">Project Proposal · Version 1.3</span></p>
+    <p class="eyebrow"><span class="el">Πρόταση Έργου · Έκδοση 1.7</span><span class="en">Project Proposal · Version 1.7</span></p>
     <h1><span class="el">Αναβάθμιση Ψηφιακής Παρουσίας &amp; Πλατφόρμα Μελών</span><span class="en">Digital Presence Upgrade &amp; Members Platform</span></h1>
     <p class="sub"><span class="el">Πρόταση εύρους, αρχιτεκτονικής και τεκμηρίωσης τεχνολογικών επιλογών για το νέο ψηφιακό περιβάλλον της Ναυτιλιακής Λέσχης Χίων.</span><span class="en">Scope, architecture and technology rationale for the new digital environment of the Chios Marine Club.</span></p>
     <dl class="meta">
@@ -308,11 +320,11 @@ html[data-lang="en"] div.el{display:none!important}
       </div>
       <div>
         <dt><span class="el">Χορηγία υλοποίησης</span><span class="en">Implementation sponsored by</span></dt>
-        <dd>[<span class="el">προς συμπλήρωση</span><span class="en">to be completed</span>]</dd>
+        <dd><span class="el">Ιδιώτης χορηγός, μέλος του Δ.Σ.</span><span class="en">Private sponsor, member of the Board</span></dd>
       </div>
       <div>
         <dt><span class="el">Ημερομηνία</span><span class="en">Date</span></dt>
-        <dd>[<span class="el">προς συμπλήρωση</span><span class="en">to be completed</span>]</dd>
+        <dd><span class="el">30 Ιουλίου 2026</span><span class="en">30 July 2026</span></dd>
       </div>
     </dl>
   </div>
@@ -803,8 +815,27 @@ html[data-lang="en"] div.el{display:none!important}
 </table>
 </div>
 
+<h3><span class="el">Χρονοδιάγραμμα υλοποίησης</span><span class="en">Delivery schedule</span></h3>
+<p><span class="el">Ο υλοποιητής δεσμεύεται για <strong>δεκαπέντε εργάσιμες ημέρες</strong> — τρεις εβδομάδες — τεχνικής εργασίας, από την έγκριση του εύρους έως τη θέση σε παραγωγή. Ο χρόνος αυτός αφορά αποκλειστικά όσα ελέγχει ο υλοποιητής και δεν περιλαμβάνει τα διαστήματα αναμονής για εγκρίσεις και επιβεβαιώσεις από τη Λέσχη, τα οποία αποτυπώνονται χωριστά.</span><span class="en">The implementer commits to <strong>fifteen working days</strong> — three weeks — of technical work, from scope approval to production launch. This covers only what the implementer controls and excludes waiting periods for approvals and confirmations from the Club, which are stated separately.</span></p>
+
+<div class="tbl-scroll">
+<table>
+  <caption><span class="el">Εργάσιμες ημέρες ανά φάση</span><span class="en">Working days per phase</span></caption>
+  <thead><tr><th style="width:34%"><span class="el">Φάση</span><span class="en">Phase</span></th><th style="width:22%"><span class="el">Εργασία υλοποιητή</span><span class="en">Implementer work</span></th><th><span class="el">Αναμονή για τη Λέσχη</span><span class="en">Waiting on the Club</span></th></tr></thead>
+  <tbody>
+    <tr><td class="tech"><span class="el">1 · Πρότυπο</span><span class="en">1 · Prototype</span></td><td><span class="el">4 ημέρες</span><span class="en">4 days</span></td><td><span class="el">Έγκριση εύρους — έως 5 εργάσιμες</span><span class="en">Scope approval — up to 5 working days</span></td></tr>
+    <tr><td class="tech"><span class="el">2 · Ταυτότητα</span><span class="en">2 · Identity</span></td><td><span class="el">1 ημέρα</span><span class="en">1 day</span></td><td><span class="el">Έγκριση σχεδιασμού — έως 3 εργάσιμες</span><span class="en">Design approval — up to 3 working days</span></td></tr>
+    <tr><td class="tech"><span class="el">3 · Επικύρωση</span><span class="en">3 · Validation</span></td><td>—</td><td><span class="el">Σχόλια δείγματος μελών — έως 5 εργάσιμες</span><span class="en">Member sample feedback — up to 5 working days</span></td></tr>
+    <tr><td class="tech"><span class="el">4 · Ανάπτυξη &amp; μετάπτωση</span><span class="en">4 · Build &amp; migration</span></td><td><span class="el">8 ημέρες</span><span class="en">8 days</span></td><td><span class="el">Επιβεβαίωση δεδομένων μελών από τη Γραμματεία· UAT — έως 10 εργάσιμες</span><span class="en">Member data confirmation by the Secretariat; UAT — up to 10 working days</span></td></tr>
+    <tr><td class="tech"><span class="el">5 · Λειτουργία</span><span class="en">5 · Go-live</span></td><td><span class="el">2 ημέρες</span><span class="en">2 days</span></td><td>—</td></tr>
+    <tr><td class="tech"><span class="el">Σύνολο</span><span class="en">Total</span></td><td><span class="el"><strong>15 εργάσιμες</strong></span><span class="en"><strong>15 working days</strong></span></td><td><span class="el">έως 23 εργάσιμες</span><span class="en">up to 23 working days</span></td></tr>
+  </tbody>
+</table>
+</div>
+
 <div class="callout note">
-  <p><span class="el"><strong>Χρονοδιάγραμμα.</strong> Δεν προτείνονται δεσμευτικές ημερομηνίες πριν την ολοκλήρωση της Φάσης 1. Κάθε εκτίμηση πριν από την οριστικοποίηση του εύρους θα ήταν παραπλανητική.</span><span class="en"><strong>Timeline.</strong> No binding dates are proposed before Phase 1 is complete. Any estimate made before scope is fixed would be misleading.</span></p>
+  <p><span class="el"><strong>Πώς διαβάζεται ο πίνακας.</strong> Η τεχνική εργασία ολοκληρώνεται σε τρεις εβδομάδες. Το συνολικό ημερολογιακό διάστημα εξαρτάται από την ταχύτητα των εγκρίσεων και της επιβεβαίωσης δεδομένων από τη Λέσχη. Με τα προτεινόμενα παράθυρα απόκρισης, το έργο ολοκληρώνεται σε περίπου <strong>οκτώ εβδομάδες ημερολογιακά</strong>. Κάθε ημέρα καθυστέρησης πέραν των παραθύρων μετατοπίζει αντίστοιχα την παράδοση, χωρίς άλλη συνέπεια.</span><span class="en"><strong>How to read the table.</strong> Technical work completes in three weeks. Total elapsed time depends on how quickly the Club approves and confirms data. With the proposed response windows, the project completes in roughly <strong>eight calendar weeks</strong>. Any delay beyond those windows shifts delivery accordingly, with no other consequence.</span></p>
+  <p><span class="el">Οι ημερομηνίες γίνονται δεσμευτικές με την έγκριση της Φάσης 1. Οι δύο επείγουσες ενέργειες της Ενότητας 4 εκτελούνται ανεξάρτητα και δεν εντάσσονται στο παραπάνω.</span><span class="en">Dates become binding upon Phase 1 approval. The two urgent actions in Section 4 are performed independently and are not part of the above.</span></p>
 </div>
 
 <!-- ── 14 ── -->
@@ -817,12 +848,18 @@ html[data-lang="en"] div.el{display:none!important}
   <tbody>
     <tr><td><span class="el">Σχεδιασμός, ανάπτυξη, μετάπτωση δεδομένων</span><span class="en">Design, development, data migration</span></td><td><span class="el">Χορηγός</span><span class="en">Sponsor</span></td><td><span class="el">Άνευ χρέωσης προς τη Λέσχη</span><span class="en">No charge to the Club</span></td></tr>
     <tr><td><span class="el">Υποστήριξη παραγωγής, 2 εβδομάδες</span><span class="en">Production support, 2 weeks</span></td><td><span class="el">Χορηγός</span><span class="en">Sponsor</span></td><td><span class="el">Άνευ χρέωσης προς τη Λέσχη</span><span class="en">No charge to the Club</span></td></tr>
-    <tr><td><span class="el">Φιλοξενία και υποδομή, ετησίως</span><span class="en">Hosting and infrastructure, annual</span></td><td><span class="el">Λέσχη</span><span class="en">Club</span></td><td>[<span class="el">προς οριστικοποίηση</span><span class="en">to be finalised</span>]</td></tr>
-    <tr><td><span class="el">Διαδικτυακά ονόματα και πιστοποιητικά, ετησίως</span><span class="en">Domain names and certificates, annual</span></td><td><span class="el">Λέσχη</span><span class="en">Club</span></td><td>[<span class="el">προς οριστικοποίηση</span><span class="en">to be finalised</span>]</td></tr>
-    <tr><td><span class="el">Υπηρεσία ταυτοποίησης, ετησίως</span><span class="en">Identity service, annual</span></td><td><span class="el">Λέσχη</span><span class="en">Club</span></td><td>[<span class="el">προς οριστικοποίηση</span><span class="en">to be finalised</span>]</td></tr>
-    <tr><td><span class="el">Συντήρηση και ενημερώσεις ασφαλείας, ετησίως</span><span class="en">Maintenance and security updates, annual</span></td><td><span class="el">Λέσχη</span><span class="en">Club</span></td><td>[<span class="el">προς οριστικοποίηση</span><span class="en">to be finalised</span>]</td></tr>
+    <tr><td><span class="el">Φιλοξενία και υποδομή, ετησίως</span><span class="en">Hosting and infrastructure, annual</span></td><td><span class="el">Λέσχη</span><span class="en">Club</span></td><td><span class="el">≈ €360 – €520</span><span class="en">≈ €360 – €520</span></td></tr>
+    <tr><td><span class="el">Διαδικτυακά ονόματα και πιστοποιητικά, ετησίως</span><span class="en">Domain names and certificates, annual</span></td><td><span class="el">Λέσχη</span><span class="en">Club</span></td><td><span class="el">≈ €30 – €60</span><span class="en">≈ €30 – €60</span></td></tr>
+    <tr><td><span class="el">Υπηρεσία ταυτοποίησης, ετησίως</span><span class="en">Identity service, annual</span></td><td><span class="el">Λέσχη</span><span class="en">Club</span></td><td><span class="el">€0 — εντός δωρεάν ορίου</span><span class="en">€0 — within free tier</span></td></tr></tr>
+    <tr><td><span class="el">Συντήρηση και ενημερώσεις ασφαλείας, ετησίως</span><span class="en">Maintenance and security updates, annual</span></td><td><span class="el">Λέσχη</span><span class="en">Club</span></td><td><span class="el">αποτιμάται· βλ. σημείωση</span><span class="en">priced; see note</span></td></tr>
+    <tr><td><span class="el"><strong>Σύνολο ετήσιου λειτουργικού κόστους</strong></span><span class="en"><strong>Total annual operating cost</strong></span></td><td><span class="el">Λέσχη</span><span class="en">Club</span></td><td><span class="el"><strong>≈ €390 – €580</strong></span><span class="en"><strong>≈ €390 – €580</strong></span></td></tr>
   </tbody>
 </table>
+</div>
+
+<div class="callout note">
+  <p><span class="el"><strong>Πώς προέκυψαν τα ποσά.</strong> Οι εκτιμήσεις βασίζονται στον <em>δημόσιο τιμοκατάλογο</em> των αντίστοιχων υπηρεσιών και όχι σε προσφορά. Αναλυτικά: υπολογιστική ισχύς εφαρμογής με μία ελάχιστη ενεργή μονάδα (0,5 vCPU / 1 GiB) υπό το καθεστώς κατανάλωσης, με τις πρώτες 180.000 vCPU-δευτερόλεπτα και 2 εκατ. αιτήσεις τον μήνα δωρεάν· βάση δεδομένων σε κατηγορία Burstable B1ms με αποθηκευτικό χώρο και αντίγραφα ασφαλείας· υπηρεσία ταυτοποίησης χωρίς χρέωση, καθώς το δωρεάν όριο των 50.000 μηνιαίων ενεργών χρηστών υπερκαλύπτει τα 462 μέλη και εταιρείες· φιλοξενία στατικού περιεχομένου, αποθήκευση αρχείων και θησαυροφυλάκιο μυστικών σε επίπεδα χαμηλού κόστους.</span><span class="en"><strong>How these figures were derived.</strong> The estimates are based on the <em>public list prices</em> of the respective services, not on a quotation. In detail: application compute with one minimum active replica (0.5 vCPU / 1 GiB) on the consumption plan, with the first 180,000 vCPU-seconds and 2 million requests per month free; database on the Burstable B1ms tier including storage and backups; identity service at no charge, as the free allowance of 50,000 monthly active users far exceeds the 462 members and companies; static hosting, file storage and secret vault on low-cost tiers.</span></p>
+  <p><span class="el">Τα ποσά είναι <strong>ενδεικτικά</strong> και υπόκεινται σε διακυμάνσεις ανά περιοχή, ισοτιμία και πραγματική χρήση. Οριστικοποιούνται με την ενεργοποίηση της συνδρομής, πριν την έναρξη της Φάσης 4.</span><span class="en">The figures are <strong>indicative</strong> and subject to variation by region, exchange rate and actual usage. They are finalised when the subscription is activated, before Phase 4 begins.</span></p>
 </div>
 
 <div class="callout">
@@ -889,6 +926,7 @@ html[data-lang="en"] div.el{display:none!important}
   <tbody>
     <tr><td><span class="el">Διεύρυνση εύρους κατά την ανάπτυξη</span><span class="en">Scope expansion during development</span></td><td><span class="el">Γραπτή έγκριση ανά φάση· κάθε νέο αίτημα καταγράφεται για δεύτερη φάση</span><span class="en">Written approval per phase; new requests logged for a second phase</span></td></tr>
     <tr><td><span class="el">Μη εξασφάλιση ετήσιου προϋπολογισμού λειτουργίας</span><span class="en">Annual operating budget not secured</span></td><td><span class="el">Αποτελεί προϋπόθεση εκκίνησης της Φάσης 4</span><span class="en">A precondition for starting Phase 4</span></td></tr>
+    <tr><td><span class="el">Καθυστέρηση εγκρίσεων ή επιβεβαίωσης δεδομένων από τη Λέσχη</span><span class="en">Delay in Club approvals or data confirmation</span></td><td><span class="el">Προσυμφωνημένα παράθυρα απόκρισης ανά φάση· η παράδοση μετατοπίζεται αντίστοιχα και καταγράφεται γραπτώς</span><span class="en">Pre-agreed response windows per phase; delivery shifts accordingly and is recorded in writing</span></td></tr>
     <tr><td><span class="el">Χαμηλή υιοθέτηση από τα μέλη</span><span class="en">Low member adoption</span></td><td><span class="el">Επικύρωση σε δείγμα μελών πριν την ανάπτυξη· απλή διαδικασία πρώτης σύνδεσης</span><span class="en">Validation with a member sample before build; simple first-login process</span></td></tr>
     <tr><td><span class="el">Ελλιπή ή ανακριβή υφιστάμενα δεδομένα μελών</span><span class="en">Incomplete or inaccurate existing member data</span></td><td><span class="el">Καθαρισμός κατά τη μετάπτωση με επιβεβαίωση από τη Γραμματεία</span><span class="en">Cleansing during migration with confirmation by the Secretariat</span></td></tr>
     <tr><td><span class="el">Μη ανακτήσιμο διαδικτυακό όνομα</span><span class="en">Domain name not recoverable</span></td><td><span class="el">Εναλλακτική στρατηγική ονομάτων και δημόσια ενημέρωση μελών</span><span class="en">Alternative naming strategy and public notification of members</span></td></tr>
@@ -901,6 +939,7 @@ html[data-lang="en"] div.el{display:none!important}
 <ul>
   <li><span class="el">Η Λέσχη διαθέτει ή μπορεί να αποκτήσει έλεγχο των διαδικτυακών της ονομάτων</span><span class="en">The Club holds or can obtain control of its domain names</span></li>
   <li><span class="el">Υφίσταται πρόσβαση στο υπάρχον σύστημα για εξαγωγή δεδομένων και αρχείου</span><span class="en">Access to the existing system exists for data and archive extraction</span></li>
+  <li><span class="el">Η Λέσχη τηρεί τα παράθυρα απόκρισης της Ενότητας 13</span><span class="en">The Club observes the response windows in Section 13</span></li>
   <li><span class="el">Ορίζεται ενιαίο σημείο επικοινωνίας για όλη τη διάρκεια του έργου</span><span class="en">A single point of contact is designated for the duration of the project</span></li>
   <li><span class="el">Το Διοικητικό Συμβούλιο εγκρίνει τη θέσπιση πολιτικής απορρήτου και όρων χρήσης</span><span class="en">The Board approves the adoption of a privacy policy and terms of use</span></li>
 </ul>
@@ -954,7 +993,7 @@ html[data-lang="en"] div.el{display:none!important}
 </div></div>
 
 <div class="callout note">
-  <p><span class="el"><strong>Προθεσμία απάντησης:</strong> [προς συμπλήρωση]. Παραμένουμε στη διάθεσή σας για διευκρινίσεις, γραπτώς.</span><span class="en"><strong>Response deadline:</strong> [to be completed]. We remain available for clarifications, in writing.</span></p>
+  <p><span class="el"><strong>Προθεσμία για την απόφαση 1:</strong> 5 Αυγούστου 2026. Αφορά αποκλειστικά τις δύο επείγουσες ενέργειες της Ενότητας 4, οι οποίες δεν αντέχουν αναμονή.</span><span class="en"><strong>Deadline for decision 1:</strong> 5 August 2026. This concerns only the two urgent actions in Section 4, which cannot wait.</span></p><p><span class="el"><strong>Προθεσμία για τις αποφάσεις 2 έως 7:</strong> 31 Αυγούστου 2026, ώστε να υπάρξει επαρκής χρόνος εξέτασης από όλα τα μέλη του Διοικητικού Συμβουλίου κατά τη θερινή περίοδο. Παραμένουμε στη διάθεσή σας για διευκρινίσεις, γραπτώς.</span><span class="en"><strong>Deadline for decisions 2 to 7:</strong> 31 August 2026, allowing sufficient time for consideration by all Board members over the summer period. We remain available for clarifications, in writing.</span></p>
 </div>
 
 <h4 style="margin-top:3rem"><span class="el">Ιστορικό εκδόσεων</span><span class="en">Version history</span></h4>
@@ -966,12 +1005,16 @@ html[data-lang="en"] div.el{display:none!important}
     <tr><td>1.1</td><td>[—]</td><td><span class="el">Προσθήκη ενοτήτων εξαιρέσεων, μετάπτωσης και πίνακα δικαιωμάτων πρόσβασης</span><span class="en">Added exclusions, migration and access rights sections</span></td></tr>
     <tr><td>1.2</td><td>[—]</td><td><span class="el">Ευθυγράμμιση με το συμβατικό πλαίσιο: δομή τριών μερών, πνευματικά δικαιώματα, όριο φιλοξενίας, UAT, Φάση 6 υποστήριξης</span><span class="en">Alignment with the contractual framework: three-party structure, IP, hosting boundary, UAT, Phase 6 support</span></td></tr>
     <tr><td>1.3</td><td>[—]</td><td><span class="el">Περίοδος υποστήριξης παραγωγής: δύο εβδομάδες</span><span class="en">Production support period: two weeks</span></td></tr>
+    <tr><td>1.4</td><td>[—]</td><td><span class="el">Δεσμευτικό χρονοδιάγραμμα: 15 εργάσιμες τεχνικής εργασίας και παράθυρα απόκρισης της Λέσχης</span><span class="en">Binding schedule: 15 working days of technical work and Club response windows</span></td></tr>
+    <tr><td>1.5</td><td>30/07/2026</td><td><span class="el">Συμπλήρωση χορηγού, ημερομηνιών και ενδεικτικού ετήσιου λειτουργικού κόστους</span><span class="en">Sponsor, dates and indicative annual operating cost added</span></td></tr>
+    <tr><td>1.6</td><td>[—]</td><td><span class="el">Κλιμακωτές προθεσμίες απόφασης· προσθήκη Παραρτήματος Β με σχέδιο σύμβασης χορηγίας</span><span class="en">Staged decision deadlines; Annex B with draft sponsorship agreement added</span></td></tr>
+    <tr><td>1.7</td><td>[—]</td><td><span class="el">Το Παράρτημα Β έγινε δίγλωσσο, με ρήτρα υπερίσχυσης του ελληνικού κειμένου</span><span class="en">Annex B made bilingual, with a Greek-prevailing clause</span></td></tr>
   </tbody>
 </table>
 </div>
 
 <div class="docfoot">
-  <span><span class="el">Ναυτιλιακή Λέσχη Χίων · Πρόταση Έργου · Έκδοση 1.3</span><span class="en">Chios Marine Club · Project Proposal · Version 1.3</span></span>
+  <span><span class="el">Ναυτιλιακή Λέσχη Χίων · Πρόταση Έργου · Έκδοση 1.7</span><span class="en">Chios Marine Club · Project Proposal · Version 1.7</span></span>
   <span><span class="el">Εμπιστευτικό — προς χρήση του Διοικητικού Συμβουλίου</span><span class="en">Confidential — for the use of the Board of Directors</span></span>
 </div>
 
